@@ -1,0 +1,141 @@
+.member_panel_container {
+    xfloat: right;
+	margin: 0 auto;
+    padding: 8px 0 0;
+    position: relative;
+    xwidth: 13em;
+}
+.member_panel_container:after {
+    clear: both;
+    content: ".";
+    display: block;
+    height: 0;
+    visibility: hidden;
+}
+.member_panel {
+    font-size: 11px;
+    position: relative;
+    xtext-align: right;
+    xwidth: 24em;
+}
+.member_panel_notifications {
+    padding: 5px 0;
+}
+.member_panel_notifications p {
+    line-height: 11px;
+    margin: 0;
+}
+.member_panel p {
+    margin-bottom: 5px;
+}
+.member_panel a, .member_panel a:visited {
+    color: #111;
+    font-size: 1.2em;
+    font-weight: 500;
+    margin: 0;
+    text-decoration: none;
+}
+.member_panel a:hover, .member_panel a:active {
+    color: #555;
+    text-decoration: none;
+}
+.member_panel > a {
+    display: inline-block;
+}
+.login-form {
+    background: none repeat scroll 0 0 #FFFFFF;
+    border: 1px solid #404040;
+    margin: 0 auto;
+    padding: 0 1em 1em;
+    text-align: left;
+    width: 21em;
+    z-index: 9999;
+}
+.member_panel div.iframe_area {
+    position: relative;
+	display: inline-block;
+}
+.member_panel div.iframe_area .options_frame {
+	border: 1px solid #404040;
+    height: 38em;
+    position: absolute;
+    right: -101px;
+    top: 5px;
+    width: 28em;
+    z-index: 10000;
+}
+.member_panel > .login_form {
+	position:absolute;
+	width:100%;
+	z-index:1000;
+}
+.login-form label {
+    font-size: 11px;
+}
+.login-form input[type="text"], .login-form input[type="email"], .login-form input[type="password"] {
+    font-size: 11px;
+    line-height: 18px;
+}
+.login-form input.email {
+    margin-right: 20px;
+}
+.login-form input.password {
+}
+.login-form input.submit-login {
+    font-size: 12px;
+    line-height: 14px;
+    margin-left: 10px;
+    padding: 0 10px;
+}
+input.submit-signup, input.submit-renewal {
+    display: inline-block;
+    margin-left: 10px;
+    padding: 0 10px;
+}
+.member_panel .divider {
+    border-right: 2px solid #808080;
+    margin: 0 2.5%;
+}
+#header-contact .member_panel_container {
+    display: none;
+    float: right;
+    margin-right: 2%;
+    margin-top: 1em;
+    position: relative;
+    z-index: 1000;
+}
+#header-contact .member_panel {
+    position: absolute;
+	width:24em;
+	text-align:right;
+    right: 0;
+    top: 0;
+}
+#topNav .member_panel_container {
+    display: block;
+    margin: 0.6em auto 0 auto;
+	float: none;
+}
+#topNav .member_panel div.iframe_area .options_frame {
+    xtop: 1.7em;
+}
+
+@media screen and (min-width: 45.75em) { /* min-width 732px (45.75em) */
+
+
+}
+
+@media screen and (min-width: 900px) { /* min-width:960px (60em) */
+#header-contact .member_panel div.iframe_area .options_frame {
+	right:0;
+}
+#header-contact .member_panel_container {
+		display:block;
+		margin-right: 0;
+	}
+	#topNav .member_panel_container {
+		display:none;
+	}
+
+	.login-form {margin: 0.5em 0 0 1em}
+}

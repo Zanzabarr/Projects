@@ -1,0 +1,492 @@
+/* ALL NAVIGATION STYLES IN THIS FILE (TOPMENU, SIDEMENU, MOBILE) */
+/* THIS FILE PROVIDES TOUCHSCREEN SUPPORT WITHOUT SPRY AND MENUS FOR GRANDCHILDREN */
+
+#topNav {
+	margin-bottom:2em;
+}
+/* Style the open, close buttons */
+ul.MenuBarHorizontal a.arrowOpen {
+	float:right;
+	width:10px;
+	margin-top:-1.5em;
+}
+a.sideArrow {
+	float:right;
+	margin-top: -1.75em;
+}
+span.mobileOpen, span.mobileClose{
+    width: 0;
+    height: 0;
+	content:'';
+	position:relative;
+	margin: 0 8px;
+	top: 0;
+	margin-bottom:-.7em;
+	display:inline-block;
+}
+ul.MenuBarHorizontal li span, ul.MenuBarVertical li a > span {
+	float:right;
+}
+
+/* topRow mobile open/close (up/down arrows) */
+.topRow > span > span.mobileOpen, #sideMenu li > a > span > span.mobileOpen{
+    border: solid 10px transparent;
+	border-left: solid 5px transparent;
+	border-right: solid 5px transparent;
+    border-top-color: #bc2c2c;
+	margin-top: -16px;
+}
+.topRow > span > span.mobileClose, #sideMenu li > a > span > span.mobileClose {
+    border: solid 10px transparent;
+	border-left: solid 5px transparent;
+	border-right: solid 5px transparent;
+    border-bottom-color: #bc2c2c;
+	margin-top: -26px;
+}
+
+/* up arrow color if selected/active/hover */
+.topRow:hover > span > span.mobileOpen,
+li.selectedMenu.topRow > span > span.mobileOpen, #sideMenu li:hover > a > span > span.mobileOpen, #sideMenu li.selectedMenu > a > span> span.mobileOpen {
+	border-top-color: #fff;
+}
+
+/* down arrow color if selected/active/hover */
+.topRow:hover >span > span.mobileClose,
+li.selectedMenu.topRow > span > span.mobileClose, #sideMenu li:hover > a > span > span.mobileClose, #sideMenu li.selectedMenu > a > span > span.mobileClose {
+	border-bottom-color: #fff;
+}
+
+/* up arrow color if not selected */
+.topRow > span > span.mobileOpen, #sideMenu li > a.MenuBarItemSubmenuHover > span > span.mobileOpen {
+	border-top-color:#bc2c2c;
+}
+
+/* left/right arrows for submenu */
+ul.MenuBarHorizontal ul span.mobileOpen, ul.MenuBarVertical ul span.mobileOpen {
+    border-bottom: 5px solid transparent;
+    border-left: 10px solid #000;
+    border-top: 5px solid transparent;
+    display: inline-block;
+    margin: 2px 0 -.7em 13px;
+    top: -16px;
+}
+ul.MenuBarHorizontal ul span.mobileClose, ul.MenuBarVertical ul span.mobileClose {
+	border-right: 10px solid #000;
+	border-top: 5px solid transparent;
+	border-bottom: 5px solid transparent;
+    display: inline-block;
+    margin: 2px 13px -.7em 13px;
+    top: -16px;
+}
+ul.MenuBarHorizontal ul li:hover span.mobileOpen {
+	border-left:10px solid #fff;
+}
+ul.MenuBarHorizontal ul li:hover span.mobileClose {
+	border-right:10px solid #fff;
+}
+
+/* HORIZONTAL MENU STYLING */
+.topRow ul {clear:both;}
+
+ul.MenuBarHorizontal{
+	width:98.55%;
+	padding-left:1.5%;
+	background-color:#ffffff;
+	position:relative;
+}
+
+ul.MenuBarHorizontal a
+{	font-weight:700;
+	text-transform: uppercase;
+	color:#333333;
+	width:100%;
+	display: inline-block;
+	cursor: pointer;
+}
+
+ul.MenuBarHorizontal li {
+	margin: 0;
+	padding:0.5em 1.033em 0.5em 0.765em;
+	margin:0.5em 0em 0.5em 0em;
+	font-size: 100%;
+	position: relative;
+	text-align: left;
+	cursor: pointer;
+	xfloat: left;
+	display: inline-block;
+}
+
+ul.MenuBarHorizontal li:hover, ul.MenuBarHorizontal li.selectedMenu {
+	background:#ad1b1b;
+}
+
+ul.MenuBarHorizontal ul {
+	margin: 0;
+	margin-top:0.5em;
+	margin-left:-1.1em;
+	padding: 0;
+	list-style-type: none;
+	z-index: 1020;
+	cursor: default;
+	position: absolute;
+	background:#eeeeee;
+	border: .1em solid #666666;
+	border-top: none;
+	opacity: 0.95;
+	width:18em;
+	display:none;
+}
+ul.MenuBarHorizontal > li > ul.MenuBarSubmenuVisible, ul.MenuBarVertical > li> ul.MenuBarSubmenuVisible {
+	left:1.1em;
+	color:#fff;
+	display:block;
+}
+ul.MenuBarHorizontal.notMobile > li > ul.MenuBarSubmenuVisible li:hover ul {
+	left:auto;
+	top:0;
+	color:#fff;
+	display:block;
+}
+
+ul.MenuBarHorizontal ul li {
+	width: 17em;
+	margin-bottom:0px;
+	padding:0.5em 0.5em 0.5em 0.5em;
+	margin:0.0em 0em 0.5em 0em;
+	font-family: Arial, Sans serif;
+	margin-bottom:0em;
+}
+
+ul.MenuBarHorizontal ul li a {
+	font-weight:300;
+}
+
+ul.MenuBarHorizontal ul.MenuBarSubmenuVisible ul.MenuBarSubSubmenu {
+	position: absolute;
+	margin: 0 0 0 97.5%;
+	display:none;
+}
+
+/* shim for sub-submenu */
+ul.MenuBarHorizontal ul.MenuBarSubmenuVisible ul.MenuBarSubmenuVisible, ul.MenuBarVertical ul.MenuBarSubmenuVisible ul.MenuBarSubmenuVisible {
+	display:block;
+	left: auto;
+	top: 0;
+	margin-top: 0;
+	margin-bottom: 0.07em;
+}
+
+/* shim for submenu and sub-submenu opening on the left */
+ul.MenuBarSubmenuVisible.horizontalSwitchClass {
+	display:block;
+	left:auto !important;
+	right:0;
+}
+ul.MenuBarSubSubmenu.horizontalSwitchClass {
+	display:block;
+	left:-199% !important;
+	top:0 !important;
+}
+
+/* shim for ie sub-submenu */
+ul.MenuBarHorizontal li.MenuBarItemIE ul.MenuBarSubmenuVisible ul.MenuBarSubmenuVisible {
+	margin-top: -.25em;
+}
+
+ul.MenuBarHorizontal iframe {
+	position: absolute;
+	z-index: 1010;
+}
+ul.MenuBarHorizontal.ie7 ul  {margin-left: -50px;}
+ul.MenuBarHorizontal.ie7 ul ul {
+	margin: 0 0 0 100%;
+}
+
+/* font-colors in hover/non-hover states */
+.MenuBarSubmenu.MenuBarSubmenuVisible li:hover ul.MenuBarSubSubmenu  li a {
+	color:#333;
+}
+ul.MenuBarHorizontal li:hover a.MenuBarItemSubmenuHover, ul.MenuBarHorizontal li:hover a.MenuBarItemHover, ul.MenuBarHorizontal li.selectedMenu a.selectedMenu, .MenuBarSubmenu.MenuBarSubmenuVisible li:hover a, .MenuBarSubmenu.MenuBarSubmenuVisible li:hover ul.MenuBarSubSubmenu  li:hover a {
+	color:#fff;
+}
+/* END HORIZONTAL MENU STYLING */
+
+/***** MOBILE MENU *****/
+
+.menu-toggle {
+	display:none;
+	position:relative;
+	clear:both;
+	padding-top:0;
+	top:-1.3em;
+	height:1.75em;
+	margin:2em auto -1.3em auto;
+	background:url('../images/topselect_home.png') no-repeat left;
+	background-size:100% 100%;
+	padding: 0.3em 0 .1em 0;
+	font-size: 1.1em;
+	color:#fff;
+	font-family:"Open Sans", Arial, sans-serif;
+}
+#topMenu {
+	display:none;
+}
+#topMenu.toggled-on {
+	display:block;
+	position:relative;
+	float:left;
+	z-index:15;
+	height:100%;
+	background:#555;
+	overflow-y:scroll;
+	overflow-x:hidden;
+}
+#topMenu.toggled-on span {
+	display:none;
+}
+#topMenu.toggled-on li {
+	width:90%;
+	padding: 0.2em 0px 0.2em 4%;
+	background:none;
+	line-height:1;
+	display:block;
+	float:none;
+	clear:both;
+	margin:0;
+}
+#topMenu.toggled-on ul {
+	display:block;
+	background:#555;
+	width:100%;
+	margin:.5em 0 0 0;
+	z-index:0;
+	left:auto;
+	position:relative;
+	border:none;
+}
+
+#topMenu.toggled-on li a {
+	font-weight:300;
+	font-size:1em;
+	color:#fff;
+}
+
+#topMenu.toggled-on li.topRow a {
+	color:#ff9;
+	font-weight:500;
+}
+#topMenu.toggled-on ul.MenuBarSubmenu a {
+	color:#fff;
+	font-weight:300;
+}
+
+/* selected menu items */
+ul.MenuBarHorizontal a.mobileSelected {
+	background:#ad1b1b;
+	color:#fff;
+}
+
+/* END MOBILE MENU STYLING */
+
+/* VERTICAL MENU STYLING */
+ul.MenuBarVertical ul {
+	padding: 0;
+	list-style-type: none;
+	z-index: 1020;
+	cursor: default;
+	width: 15em;
+	position: relative;
+	opacity: 0.95;
+	margin: 0 0 0 96%;
+	background:#dcdcdc;
+    border: 1px solid #999;
+	border-bottom:none;
+	text-transform:uppercase;
+	font-size:0.95em;
+	font-family:Arial, Sans serif;
+	display:none;
+}
+ul.MenuBarVertical ul.MenuBarSubmenuVisible {
+	position:relative;
+	top: 0;
+}
+ul.MenuBarVertical li {
+	height:25px;
+}
+ul.MenuBarVertical ul li {
+	margin-left: 0px;
+}
+
+ul.MenuBarVertical ul.MenuBarSubmenuVisible {
+	display:block;
+	top:-2.4em;
+}
+ul.MenuBarVertical ul.MenuBarSubmenuVisible ul.MenuBarSubmenuVisible {
+	right: 0;
+	top: 1px;
+}
+ul.MenuBarVertical a {
+	display: block;
+	cursor: pointer;
+	padding: 0.25em 0.75em;
+	color: #464646;
+	text-decoration: none;
+	text-transform: uppercase;
+}
+ul.MenuBarVertical a:hover, ul.MenuBarVertical a:focus {
+	color: #000000;
+}
+
+ul.MenuBarVertical a.MenuBarItemHover, ul.MenuBarVertical a.MenuBarItemSubmenuHover, ul.MenuBarVertical a.MenuBarSubmenuVisible {
+	color: #000000;
+}
+
+ul.MenuBarVertical iframe {
+	position: absolute;
+	z-index: 1010;
+}
+ul.MenuBarVertical.ie7  {margin-left: 0px;}
+/* END VERTICAL MENU STYLING */
+
+/* SIDE NAVIGATION STYLES */
+#sideMenu {
+    min-height: 100px;
+	background:#dcdcdc;
+    border: 1px solid #999;
+    list-style-type: none;
+    xpadding-bottom: 0.3em;
+	padding-left:0;
+	xpadding-top:0.4em;
+    margin: 2.1em 0 0 0;
+    text-decoration: none;
+	text-transform:uppercase;
+	font-size:0.95em;
+	font-family:Arial, Sans serif;
+}
+
+#sideMenu p {
+	color:#ffffff;
+	padding-bottom:0em !important;
+	margin-bottom:0em;
+	margin-top:0em;
+}
+
+#sideMenu li {
+	padding:0.6em 0 0.6em 0.6em;
+	margin-top:0;
+	margin-bottom:0;
+	margin-left:0;
+	line-height:1.2em;
+}
+#sideMenu li a {
+	overflow:hidden;
+	white-space:nowrap;
+	text-overflow:ellipsis;
+}
+
+#sideMenu span.mobileOpen, #sideMenu span.mobileClose {
+    display: inline-block;
+    margin: 2px 4px -.7em 13px;
+	top: -20px;
+	float:right;
+}
+
+#sideMenu span.mobileOpen {
+	border-bottom: 5px solid transparent;
+    border-left: 10px solid #000;
+    border-top: 5px solid transparent;
+}
+
+#sideMenu span.mobileClose {
+	border-right: 10px solid #000;
+	border-top: 5px solid transparent;
+	border-bottom: 5px solid transparent;
+}
+
+#sideMenu li:hover span.mobileOpen, #sideMenu span.mobileOpen:hover, #sideMenu span.mobileOpen:focus, #sideMenu li.selectedMenu span.mobileOpen {
+	border-left: 10px solid #fff;
+}
+#sideMenu li:hover span.mobileClose, #sideMenu li.selectedMenu span.mobileClose {
+	border-right: 10px solid #fff;
+}
+
+#sideMenu ul, #sideMenu ul ul {
+	list-style:none;
+	margin:0 0 0 94.5%;
+}
+
+#sideMenu li, #sideMenu li a {
+    color: #333333;
+	font-weight:300;
+	display:block;	/* display:block used on <a> tags to provide full width of menu item */
+}
+#sideMenu a.MenuBarItemHover, #sideMenu li li:hover a {
+	color:#fff;
+}
+
+#sideMenu li:hover, #sideMenu li:hover a.MenuBarItemSubmenu, #sideMenu li.selectedMenu {
+	color:#ffffff;
+	background:#ad1b1b;
+}
+#sideMenu li.selectedMenu a.MenuBarItemSubmenu {
+	color:#fff;
+}
+
+#sideMenu li li a {
+	font-weight:normal;
+}
+
+/* top line of sideMenu */
+#sideMenu .menu-top:hover a {
+	background:#000;
+}
+#sideMenu .menu-top, #sideMenu .menu-top:hover {
+	background-color:#000000;
+	padding-bottom:0.75em;
+}
+/* END SIDE NAVIGATION STYLES */
+
+@media screen, projection{
+	ul.MenuBarVertical li.MenuBarItemIE {
+		xdisplay: inline;
+		xf\loat: left;
+		xbackground: #FFF;
+	}
+	ul.MenuBarHorizontal li.MenuBarItemIE {
+		display: inline-block;
+		xf\loat: left;
+		xbackground: #FFF;
+	}
+}
+
+@media (min-width: 1px) and (max-width: 549px) {
+	.menu-toggle {
+		display:block;
+		width:80%;
+	}
+	#topMenu.toggled-on {
+		margin:0 0 -46em 10.5%;
+		width:78%;
+	}
+	#topMenu {display:none;}
+
+}
+
+@media (min-width: 550px) and (max-width: 899px) {
+	.menu-toggle {
+		display:block;
+		width:60%;
+	}
+	#topMenu.toggled-on {
+		width:58%;
+		margin:0 0 -46em 20.3%;
+	}
+	#topMenu {display:none;}
+}
+@media screen and (min-width:900px) {
+	.menu-toggle {
+		display: none;
+	}
+	#topNav { margin:0; }
+	#topMenu { display: block; }
+}

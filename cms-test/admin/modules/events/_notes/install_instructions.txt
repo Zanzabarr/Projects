@@ -1,0 +1,77 @@
+Installation of Events module:
+
+files required:
+	admin/modules/events/*
+	admin/includes/functions.php - make sure up-to-date
+	admin/includes/classes - make sure these are updated, especially inputfield.php, uri.php, my_date.php
+	external/setview.php - this is required for ajax within the module
+	
+	uploads/files must have full permissions for creation/downloading of iCalendar export file
+	
+database tables:
+--
+-- Table structure for table `events`
+--
+
+CREATE TABLE IF NOT EXISTS `events` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `title` text CHARACTER SET utf8 NOT NULL,
+  `url` text CHARACTER SET utf8 NOT NULL,
+  `cate` text CHARACTER SET utf8 NOT NULL,
+  `location` text CHARACTER SET utf8 NOT NULL,
+  `desc` text CHARACTER SET utf8 NOT NULL,
+  `status` tinyint(1) NOT NULL DEFAULT '0',
+  `seo_title` text CHARACTER SET utf8 NOT NULL,
+  `seo_keywords` text CHARACTER SET utf8 NOT NULL,
+  `seo_description` text CHARACTER SET ucs2 NOT NULL,
+  `start_date` datetime NOT NULL,
+  `end_date` datetime NOT NULL,
+  `enable_time` tinyint(1) NOT NULL DEFAULT '1' COMMENT 'Specifies whether or not the time portion of the DateTime field is used. 1 for True, 0 for False',
+  `custom_date` text CHARACTER SET utf8,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 ;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `events_cat`
+--
+
+CREATE TABLE IF NOT EXISTS `events_cat` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `title` text CHARACTER SET utf8 NOT NULL,
+  `url` text CHARACTER SET utf8 NOT NULL,
+  `desc` text CHARACTER SET utf8 NOT NULL,
+  `status` tinyint(1) NOT NULL DEFAULT '0',
+  `seo_title` text CHARACTER SET utf8 NOT NULL,
+  `seo_keywords` text CHARACTER SET utf8 NOT NULL,
+  `seo_description` text CHARACTER SET utf8 NOT NULL,
+  `events_per_pg` int(3) NOT NULL DEFAULT '2',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 ;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `events_colors`
+--
+
+CREATE TABLE IF NOT EXISTS `events_colors` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `cat_id` int(11) NOT NULL,
+  `color` varchar(7) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `cat_id` (`cat_id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 ;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `events_options`
+--
+
+CREATE TABLE IF NOT EXISTS `events_options` (
+  `id` int(11) NOT NULL DEFAULT '1',
+  `events_per_pg` int(3) NOT NULL DEFAULT '2',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;

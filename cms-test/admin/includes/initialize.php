@@ -1,0 +1,171 @@
+<?php
+
+####################################
+##         OVERIDE CONFIGS        ##
+####################################
+// establish as true if absent
+$_config['multi_user'] = isset($_config['multi_user']) ? $_config['multi_user'] : true;
+
+####################################
+##  OVERIDE DEFAULT PHP SETTINGS  ##
+####################################
+ini_set('include_path', 'includes');
+date_default_timezone_set("America/Los_Angeles");
+
+//Parsing and Error Settings
+ini_set('output_buffering','Off');  //Speed Up PHP (This site does not user output buffering, so no need to use it)
+ini_set('max_execution_time','-1'); //This site does not use heavy script execution, if there's an error, it'll happen faster and not waste time
+ini_set('max_input_time','-1'); //Same as above basically
+
+if ( $_config['debug'] ) {
+	ini_set('error_reporting',E_ALL); // Turn On Error Reporting
+	ini_set('display_errors','1'); //Turns On Displaying File Paths (security)
+	ini_set('html_errors', '1'); //Self explanitory
+}
+else
+{
+	ini_set('error_reporting','0'); // Turn Off Error Reporting
+	ini_set('display_errors','0'); //Turns Off Displaying File Paths (security)
+	ini_set('html_errors', '0'); //Self explanitory
+}
+
+//Security Settings
+ini_set('register_globals', 'Off'); //Don't use Globals, why turn them on?
+ini_set('register_long_arrays','Off'); //Don't use long arrays, why turn them on?
+ini_set('file_uploads','Off'); //Don't use that feature, why turn them on?
+ini_set('allow_url_fopen','Off'); //Don't need it, could be used to inject code, turned off
+
+//MySQL Settings
+ini_set('mysql.allow_persistent','On'); //Uses Persistent MySQL, turned on
+ini_set('mysql.max_persistent','-1'); //Maximum Persistent Connections (-1 == unlimited)
+
+####################################
+##      LOAD MySQL Database       ##
+####################################
+// laterally, set up the pdo db
+include($_config['admin_includes'] . 'classes/db.php');
+$_config['db'] = new db("mysql:host={$_config['sql']['host']};dbname={$_config['sql']['db']}", $_config['sql']['user'], $_config['sql']['pass']);
+
+if(! $_config['db']) 
+{
+	do_site_down();
+}
+
+$_config['db']->setErrorCallbackFunction('my_log', 'text');
+unset($_config['sql']['host'],$_config['sql']['user'],$_config['sql']['pass']); 
+
+
+####################################
+##      Load Functions            ##
+####################################
+include($_config['admin_includes'] . 'functions.php' );
+
+
+####################################
+##        MOBILE DETECTION        ##
+####################################
+$mobile= new Mobile_Detect();
+if ($_config['test_mobile']) $isMobile = true;
+else {
+	$isMobile = $mobile->isMobile(); // is this any mobile device? (phone or tablet)
+	$_config['is_tablet'] = false;
+	$_config['is_phone'] = false;
+}
+$is_tablet = $_config['is_tablet'];
+$not_tablet = !$_config['is_tablet'];
+
+if($isMobile){
+	if ($_config['is_tablet']==false) $_config['is_tablet'] = $mobile->isTablet(); // is this a tablet?
+	if ($_config['is_phone']==false && $_config['is_tablet']==false) $_config['is_phone'] = true; // is this a phone?
+}
+$is_phone = $_config['is_phone'];
+$not_phone = !$_config['is_phone'];
+
+//$isiOS = $mobile->isiOS();
+//$isAndroid = $mobile->isAndroidOS();
+
+// set to true for testing
+//$isMobile = true;
+
+// set the global
+global $isMobile, $is_tablet, $not_tablet, $is_phone, $not_phone, $mobile;
+// can look for specific devices with:
+//echo $mobile->isIpad() ? 'Mobile' : 'Not Mobile';
+
+
+####################################
+##        Dynamic Settings        ##
+####################################
+session_start();
+include($_config['rootpath'] . 'includes/functions.php');
+
+// find out if logged in
+$logged_in = logged_in();
+global $logged_in;
+
+// fill uri array with page data
+$page_base = isset($_GET['page']) ? $_GET['page'] :'';
+$uri = explode('/', $page_base);
+global $uri;
+// improved version of $uri: $uri is left in until all traces of it have been removed in favour of the class
+
+if(isset($_GET['page'])) 
+	$tmpURI = $_GET['page'];
+else 
+	$tmpURI = '';
+uri::initialize($tmpURI);
+
+// find all activeModules and run their config files
+$_SESSION['activeModules'] = getModules();
+
+if (! isset($_SESSION['menulessPages']) ) $_SESSION['menulessPages'] = get_page_files( $_config['rootpath'] . 'includes/menuless_pages/' );
+if (! isset($_SESSION['customPages']) ) $_SESSION['customPages']  = get_page_files( $_config['rootpath'] . 'includes/custom_pages/' );
+$page_base = uri::get(0);  	// page_base is the first element in the uri dictates page OR module
+
+if ($page_base == 'home') $page_base = $_config['home_slug'];
+
+$module = 'default';  		// modules are named after their php file, standard modules are called 'default'
+// if this is a module page set $module, otherwise $module still = 'default'
+//if ( in_array( $page_base, $_SESSION['activeModules']) ) $module = $page_base;
+// if this is a module page that has a custom name, set $module, otherwise $module still = 'default'
+if ( $page_base && isset($_config['customNames']) &&  array_key_exists($page_base, $_config['customNames']) ) $module = $_config['customNames'][$page_base];
+
+####################################
+##        Encryption Key          ##
+####################################
+$done = file_exists($_config['file']);
+if(!$done) {
+	$keyhash = genKey();
+	$handle = fopen($_config['file'], 'w') or die("a disaster has occurred.");
+	fwrite($handle, $keyhash);
+	fclose($handle);
+}
+
+//******************************   FUNCTIONS  *********************************//
+// these functions must be declared before the bulk of the functions (my_log is passed to pdo but pdo is used by functions in the rest of the body)
+
+function my_log($string, $type='Error')
+{	
+	global $_config;
+	error_log("\n\n************************************************************\n".date("Y-m-d H:i:s")."\t".$type."\t".$_SERVER['SCRIPT_FILENAME']."\n".$string."\n", 3, $_config['admin_path']."logs/log.txt");
+}
+
+function do_site_down()
+{
+	global $_config;
+	if(isset($_config['site_down_file']) && file_exists($_config['site_down_file']))
+		include_once($_config['site_down_file']);
+	else echo "Sorry, we are currently experiencing technical difficulties, please check again later";
+	die();
+}
+
+function genKey() {
+    $characters = '0123@456789abcdefghijklmn-opqrstuvwxyzABCDE*FGHIJKLMNOPQR&STUVWXY!Z';
+    $string = '';
+	$length = strlen($characters)-1;
+ 
+    for ($p = 0; $p < $length; $p++) {
+        $string .= $characters[mt_rand(0, $length)];
+    }
+    return hash('ripemd128',$string);
+}

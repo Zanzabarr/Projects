@@ -1,0 +1,205 @@
+/******************************/
+/* Member Panel Frame Styles */
+/*****************************/
+body {
+    color:#000;
+    font-family:Helvetica, Arial, sans-serif;
+    font-size:11px;
+    font-weight:normal;
+    padding:10px 0px;
+    margin:0px;
+	background:#fff;
+}
+
+#options-content {
+	padding:0px 10px;	
+}
+
+p {
+	margin:0px 0px 7px 0px;
+	padding:0px;	
+}
+
+label {
+	display:block;
+	float:left;
+}
+
+input {
+	font-size:11px;
+	line-height:13px;	
+	display:inline-block;
+}
+
+textarea {
+	display:inline-block;
+	font-size:11px;
+	line-height:15px;
+	width:250px;
+	height:90px;	
+}
+
+input[type=submit] {
+	font-size:13px;
+	cursor:pointer;
+}
+
+input[type=checkbox] {
+	padding:0px;
+	margin:0px;
+	line-height:0px;	
+}
+
+.input_container {
+	margin-bottom:15px;	
+}
+
+#close-button-container {
+    float:right;
+}
+
+#close-button {
+    cursor:pointer;
+    position:fixed;
+    top:2px;
+    right:2px;
+}
+
+#close-button img {
+    width:18px;
+    height:18px;
+}
+
+#member-menu-bar {
+    clear:both;
+	margin-bottom:15px;
+	padding:0px 10px 5px 10px;
+	border-bottom:1px solid #404040;
+}
+
+#member-menu-bar a, #member-menu-bar a:visited {
+	font-size:12px;
+	color:#101010;
+	margin-right:20px;
+	text-decoration:none;
+}
+
+#member-menu-bar a:hover, #member-menu-bar a:active {
+	color:#404040;
+	text-decoration:none;
+}
+#member-menu-bar a.selected {
+	color:#000;
+	font-weight: bold;
+}
+
+
+form {
+	margin:15px 0px 0px 0px;	
+}
+
+#contact-info-form label {
+	width:90px;	
+}
+
+#contact-info-form input[type=submit] {
+	margin-top:5px;	
+}
+
+#password-change-form label {
+	width:120px;
+}
+
+#edit-button, #edit-button:visited {
+	font-size:12px;
+	color:#378b36;
+}
+
+#edit-button:hover, #edit-button:active {
+	color:#404040;	
+}
+
+.error {
+	color:red;	
+}
+
+.renewable {
+	color:green;
+}
+
+.expired {
+	color:red;
+}
+
+.check-group {
+	margin-bottom:1em;
+}
+.check-group .input_container {
+	float:left;
+}
+.check-group  label {
+    display: inline-block;
+    float: none;
+	margin: auto 0 auto .5em;
+}
+.check-group  input {
+	margin-left: 2em;
+}
+.check-group .check-head input {
+	margin-left: 0em;
+}
+.check-group:after {
+	content:'.';
+	display:block;
+	clear:both;
+	height: 0;
+	visibility: hidden;
+}
+
+#cats.check-group {
+	width:25em;
+}
+
+
+#cols.check-group label {
+	width: 8em;
+}
+#cols.check-group .check-head label{
+	width:auto;
+}
+#hide-options {
+	margin-left:1em;
+}
+.all-checked #hide-options{
+	display:none;
+}
+#hide-options{
+	display:inline;
+}
+
+.check-group .check-head label{
+	float:none;
+}
+
+#member_panel_renew_form {
+	margin:10px 0px 0px 0px;
+	padding:0px;	
+}
+
+
+#cols .input_container {
+	display:none;
+}
+
+#cols.group_light .valid_light {
+	display:block;
+}
+#cols.group_heavy .valid_heavy {
+	display:block;
+}
+#cols.group_equip .valid_equip {
+	display:block;
+}
+#cols.group_trailer .valid_trailer {
+	display:block;
+}

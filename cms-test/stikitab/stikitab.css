@@ -1,0 +1,41 @@
+.stikitab {
+	display:none;
+}
+
+/* Media Queries */
+
+@media screen and (min-width: 500px) { 
+
+.stikitab {
+	display:block;
+	position:fixed;
+	top:5.4em;
+	right:0;
+	padding:0.25em 0.55em;
+	background:#000;
+	z-index:100;
+    border-left:0.375em solid #bc2c2c;
+}
+
+.stikitab div {
+	width:32px;
+	height:32px;
+	margin:9px 0px 9px 0px;
+}
+
+.stikitab div:hover {
+	cursor:pointer; 
+}
+	
+.stikitab #facebook {background:url("icons/logo-facebook.png") top;}
+.stikitab #google {background:url("icons/logo-googleplus.png") top;}
+.stikitab #twitter {background:url("icons/logo-twitter.png") top;}
+.stikitab #linkedin {background:url("icons/logo-linkedin.png");}
+.stikitab #yelp {background:url("icons/logo-yelp.png") top;}
+.stikitab #vimeo {background:url("icons/logo-vimeo.png") top;}
+.stikitab #youtube {background:url("icons/logo-youtube.png") top;}
+
+.stikitab #facebook:hover, .stikitab #google:hover, .stikitab #twitter:hover, .stikitab #linkedin:hover, .stikitab #yelp:hover, .stikitab #vimeo:hover, .stikitab #youtube:hover
+{background-position: bottom;}
+
+}

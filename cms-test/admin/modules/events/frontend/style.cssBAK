@@ -1,0 +1,102 @@
+/* CSS Document */
+div.entry-events {
+    margin:1em 0 2em 0;
+    padding:0px;
+    font-size:16px;
+}
+
+.entry-events .eventTitle, .entry-events .eventTitle:visited {
+    color:#e47f27;
+    font-size:17px;
+    font-weight:600;
+    margin:0px 0px 0px -3px;
+    padding:0px 0px 5px 0px;
+    cursor:pointer;
+    border:none;
+    background-color:transparent;  
+}
+
+.entry-events .eventTitle:hover, .entry-events .eventTitle:active {
+    color:#635d53;
+}
+
+.entry-events p {
+    margin:0px;
+    font-size:16px;
+    color:#635d53;
+    line-height:20px;
+}
+
+#events-body {
+	margin-left:2em;
+	padding:1em;
+}
+
+#events-body .eventcontent h2 {
+    text-transform:none;
+    text-decoration:underline;
+}
+
+input.postTitle {
+	border:none;
+	background:none;
+	font-family:"Open Sans", sans-serif;
+	color:#85a2a3;
+	font-weight:bold;
+	text-transform: none;
+	font-size:1.1em;
+	cursor:pointer;
+	padding:0;
+}
+input.postTitle:hover {
+	color:#e59154;
+}
+
+h2#desc-header {
+	font-size:24px;	
+}
+
+div.pagination {
+    margin-top:15px;
+}
+
+div.pagination input.pagButton.dots, div.pagination input.pagButton.dots:hover, div.pagination input.pagButton.dots:active, div.pagination input.pagButton.dots.disabled {
+    border:none; 
+    margin:0;
+    padding:0;
+}
+
+div.pagination input.pagButton, div.pagination a {
+	padding: 2px 5px 2px 5px;
+	margin: 2px;
+	border: 1px solid #666;
+	font-weight:bold;
+	text-decoration: none; /* no underline */
+	color: #666;
+	height:24px;
+    float:left;
+}
+
+div.pagination a:hover, div.pagination a:active, div.pagination input.pagButton:hover, div.pagination input.pagButton:active {
+	border: 1px solid #000;
+    cursor:pointer;
+	color: #000;
+}
+
+div.pagination span.current, div.pagination  input.pagButton.current {
+	padding: 2px 5px 2px 5px;
+	margin: 2px;
+	border: 1px solid #666;
+	font-weight: bold;
+	background-color: #666;
+	color: #FFF;
+    cursor:default;
+}
+
+div.pagination span.disabled, div.pagination input.pagButton.disabled {
+	padding: 2px 5px 2px 5px;
+	margin: 2px;
+	border: 1px solid #bbb;
+	color: #bbb;
+    cursor:default;
+}

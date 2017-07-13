@@ -1,0 +1,9 @@
+nested set info
+
+this folder contains extra files for nested sets
+  the bulk of the system exists in admin/includes/classes/nested_set.php
+  
+ the main class needs to be extended: an example already exists for ecom: admin/includes/classes/ecom_category.php
+   the extended class specifies how category data is inserted/updated and dictates which db tale holds the set data
+   
+ for now, this folder holds the ajax functions for the system  

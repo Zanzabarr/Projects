@@ -1,0 +1,576 @@
+
+html, body, #main, #fileArea {height:100%;}
+body {overflow:hidden;margin:0}
+body, #main, #sort-wrap,#sort-form, #fileArea{position:relative;height:100%;}
+
+
+a img {border:none;}
+
+body, input {font-family: arial,sans-serif} 
+
+#sort-wrap {
+	background: #eee;
+	padding:1%;
+	margin:0 auto;
+	width: 90%;
+	height:45%;
+}
+#sort-form  {
+    display: block;
+    width:100%;
+	overflow:auto;
+	height:96%;
+}
+#sort-form:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+th:first-child > div { 
+	text-align:left;
+}
+th > div {
+	text-align:right;
+}
+.ftpfolders {
+    border: 1px solid gray;
+    float: left;
+    max-width: 75%;
+    overflow: auto;
+    resize: horizontal;
+    width: 50%;
+}
+
+#fileArea {
+	padding: 1%;
+	background: #eee;
+	margin:1em auto;
+	width: 90%;
+	height:45%;
+}
+#fileArea:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/*folder table */
+#sort-form table {
+	width: 98%;
+	border-collapse: collapse;
+	white-space:nowrap;
+	margin-top:2em;
+}
+.isIE #sort-form table {
+	margin-top:0;
+}
+
+#sort-form thead tr {
+    background: none repeat scroll 0 0 #EEEEEE;
+    position: fixed;
+    top: 0;
+    width: 88%;
+    z-index: 500;
+	padding: 1%;
+}
+.isIE #sort-form thead tr {
+	position: relative;
+	width:44%;
+}
+#head_name {float:left; text-align:left;}
+#head_modified {float:right; text-align:right;}
+#sort-form table div.outer {
+	position:relative;
+}
+#sort-form table div.inner {
+	overflow: hidden;
+	white-space: nowrap;
+	position: absolute;
+	left:1.5em;
+	width: 100%;
+	text-overflow:ellipsis;
+}
+#sorted-folders tr {    
+    list-style: none outside none;
+    xpadding: 0 1.5em ;
+	padding: 0;
+    width: 100%;
+}
+
+#sorted-folders {
+    list-style: none outside none;
+    overflow: auto;
+    padding: 0;
+    width: 100%;
+	position: relative;
+}
+#sorted-folders td {
+	color:black;
+}
+#sorted-folders tr td:first-child {
+	display:inline-block;
+	padding: .2em 0 ;
+}
+#sorted-folders tr.selected-folder{
+	background:#bcc;
+}
+
+/************************************************ FOLDER CONTROLS*******************/
+#folder-controls {
+    list-style: none outside none;
+	margin: 1.4em 0 0 0;
+	padding: 0;
+	font-size:small;
+}
+#folder-controls img {
+    display: inline-block;
+    height: 20px;
+    margin-left: 0.2em;
+    position: relative;
+    top: 3px;
+    width: 20px;
+}
+.add_folder {
+	opacity: .5;
+	filter: alpha(opacity = 50);
+}
+.add_folder.valid {
+	opacity: 1;
+	filter: alpha(opacity = 100);
+}
+.add_folder_input {
+    display: none;
+    position: relative;
+    width: 8em;
+    z-index: 700;
+}
+
+#cut_copy span {padding-left: 2em;}
+
+
+.lastModified {
+    text-align: right;
+    width: 4em;
+	padding-right: 0.2em;
+}
+.closeFolder {
+	cursor: pointer;
+	font-size:1em;
+	font-weight:normal;
+	margin-top:0;
+
+}
+.dragFolder { 
+	text-align:center;
+	border:1px dashed; 
+	font-weight:bold;	
+	padding: .2em 1em;
+
+	display:block;
+	position:relative; 
+	z-index:20
+}
+.closeFolder > td:first-child span {
+    display: inline-block;
+    height: 20px;
+    position: relative;
+    top: 3px;
+    width: 20px;
+    margin-left: 0.2em;	
+}
+
+.closeFolder .folderImage {
+	background: url("../img/Folder-small.png") repeat scroll 0 0 transparent;
+}
+
+
+
+.has-sub  .folderImage{
+	background: url("../img/Folder-small-open.png") repeat scroll 0 0 transparent;
+} 
+.has-sub.closable  .folderImage{
+	background: url("../img/Folder-small-close.png") repeat scroll 0 0 transparent;
+}
+
+
+#sorted-folders  .ui-droppable.closeFolder.openFolder .folderImage {
+	background: url("../img/Open-small.png") repeat scroll 0 0 transparent;
+
+}
+
+
+
+
+.upDown {
+    height: 10px;
+    position: relative;
+    width: 10px;
+	display:inline-block;
+}
+.upDown input {
+
+    /* First, we make it as wide as the container */
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    /* Then, we put it on top of everything else */
+    z-index: 100;
+    /* Last, we make it invisible */
+    opacity: 0;
+	filter: alpha(opacity = 0);
+    /* This one is just for ergonomy */
+    cursor: pointer;
+	right:-.4em;
+	top:-.4em;
+}
+.upDown label {
+   display: block;
+   position: relative;
+   width: 0; 
+   height: 0; 
+   border-bottom: 4px solid black; 
+   border-left: 4px solid transparent; 
+   border-right: 4px solid transparent; 
+   margin:2px;
+}
+/* breaks in ie8 and lower: requires ie9.js installed */
+.upDown input:checked ~ label {
+	border-top: 4px solid black; 
+	border-bottom: 4px solid transparent; 
+}
+.upDown.inactive label {
+	border-bottom: 4px solid gray;
+}
+.upDown.inactive input:checked ~ label {
+	border-top: 4px solid gray;
+}
+
+/* error box */
+#msg-box {
+    background: none repeat scroll 0 0 black;
+    color: red;
+    margin: 0;
+    opacity: 0.8;
+	filter: alpha(opacity = 80);
+    padding: 5px;
+    position: fixed;
+    right: 1em;
+    top: 0;
+}
+
+/* Drop area styles */
+.fileupload {
+	position:relative;
+	-webkit-transition:all 1s linear;
+	-moz-transition: all 1s linear;
+	-o-transition: all 1s linear;
+	-ms-transition: all 1s linear;
+	transition: all 1s linear;
+    
+}
+.fileupload.in {
+    background: #ddd;
+}
+
+.fileupload.fade {
+    -webkit-transition: all 0.3s ease-out;
+    -moz-transition: all 0.3s ease-out;
+    -ms-transition: all 0.3s ease-out;
+    -o-transition: all 0.3s ease-out;
+    transition: all 0.3s ease-out;
+    opacity: 1;
+	filter: alpha(opacity = 100);
+}
+
+/* file info styles */
+#drop {
+    height: 98%;
+    overflow: auto;
+}
+#drop ul {
+    list-style: none outside none;
+	margin: 1.6em 0 0 0;
+	padding: 0;
+
+}
+#drop li {
+    background-color: #eee;
+    float: left;
+    height: 8.2em;
+    margin: 0.4em;
+    padding: 0.2em;
+    position: relative;
+    width: 5em;
+	border-radius: 3px; 
+	-moz-border-radius: 3px; 
+	-webkit-border-radius: 3px;	
+	-webkit-transition:all 500ms linear;
+	-moz-transition: all 500ms linear;
+	-o-transition: all 500ms linear;
+	-ms-transition: all 500ms linear;
+	transition: all 500ms linear;
+}
+#drop li.ui-draggable-dragging {
+	z-index:200;
+	opacity:.6;
+	filter:alpha(opacity: 60);
+}
+#drop li:hover, #drop li.ui-draggable-dragging{
+	background-color: #dde;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.80);
+    -moz-box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.80);
+    -webkit-box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.80);
+ 
+}
+#drop .outer {
+            width: 5em;
+            height: 3.75em;
+			position: relative;
+        }
+
+#drop .inner{
+            display:table-cell;
+            height: 3.75em;
+            width: 5em;
+            vertical-align: middle;
+			text-align: center;
+			position:relative;
+        }
+.isIE #drop .inner{
+	display: block;
+	padding-top: 3px;
+}
+#drop img {
+    display: block;
+    margin: auto;
+    max-height: 3.75em;
+    max-width: 3.75em;
+}
+#drop span {
+    display: block;
+    font-size: small;
+    line-height: 1.2em;
+    margin: 0.3em 0 0.4em;
+    text-align: center;
+    word-break: break-all;
+}
+.rename_file_mask {
+	max-height:3.6em;
+	overflow:hidden;
+	
+}
+.ui-selectable-helper{
+  position:relative;
+  z-index:100;
+  border:1px dotted black;	
+} 
+/* input button */
+div.fileinputs {
+    background: none repeat scroll 0 0 #EEEEEE;
+    position: absolute;
+    width: 88%;
+    z-index: 500;
+}
+
+div.fakefile {
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	z-index: 1;
+}
+
+div.fakefile span:first-child {
+	cursor: pointer;
+	font-weight: bold;
+}
+
+.file_btn {
+	-moz-box-shadow:inset 0px 1px 0px 0px #a4e271;
+	-webkit-box-shadow:inset 0px 1px 0px 0px #a4e271;
+	box-shadow:inset 0px 1px 0px 0px #a4e271;
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #89c403), color-stop(1, #77a809) );
+	background:-moz-linear-gradient( center top, #89c403 5%, #77a809 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#89c403', endColorstr='#77a809');
+	background-color:#89c403;
+	-moz-border-radius:6px;
+	-webkit-border-radius:6px;
+	border-radius:6px;
+	border:2px solid #74b807;
+	display:inline-block;
+	color:#ffffff;
+	font-family:arial;
+	font-size:12px;
+	font-weight:bold;
+    margin: 0 2px 0 0;
+    padding: 2px 4px;
+	text-decoration:none;
+	text-shadow:1px 1px 0px #528009;
+}
+.file_btn:hover {
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #77a809), color-stop(1, #89c403) );
+	background:-moz-linear-gradient( center top, #77a809 5%, #89c403 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#77a809', endColorstr='#89c403');
+	background-color:#77a809;
+}
+
+#go_main{z-index:1000;position:fixed;bottom:1em;right:1em;}
+
+input.file {
+	position: relative;
+	text-align: right;
+	-moz-opacity:0 ;
+	filter:alpha(opacity: 0);
+	opacity: 0;
+	z-index: 2;
+}
+/*upload progress*  individual */
+#drop .loading {z-index:1;position:relative;}
+#drop  .up_bar {
+    background: none repeat scroll 0 0 #316624;
+	background-image: linear-gradient(bottom, #316624 11%, #18D932 89%);
+	background-image: -o-linear-gradient(bottom, #316624 11%, #18D932 89%);
+	background-image: -moz-linear-gradient(bottom, #316624 11%, #18D932 89%);
+	background-image: -webkit-linear-gradient(bottom, #316624 11%, #18D932 89%);
+	background-image: -ms-linear-gradient(bottom, #316624 11%, #18D932 89%);
+
+	background-image: -webkit-gradient(
+		linear,
+		left bottom,
+		left top,
+		color-stop(0.11, #316624),
+		color-stop(0.55, #18D932)
+	);
+    bottom: 0;
+    content: "";
+    display: table;
+    height: 1%;
+    margin: 0 32%;
+    position: absolute;
+    width: 36%;
+    -webkit-transition: all 0.3s ease-out;
+    -moz-transition: all 0.3s ease-out;
+    -ms-transition: all 0.3s ease-out;
+    -o-transition: all 0.3s ease-out;
+    transition: all 0.3s ease-out;
+		
+	border:1px solid #18D932;
+	border-radius: 3px; 
+	-moz-border-radius: 3px; 
+	-webkit-border-radius: 3px; 
+}
+
+#upload_path {padding-left: .5em;}
+.upload_path {font-weight:bold;}
+.dragoff{
+	position:absolute;
+	top:0;
+	right:0;	
+
+}
+li .dragoff{
+	height:20px;
+	width:20px;
+	background: url('../img/down.png');
+	font-size: 0;
+	display:none;
+	line-height: 0;
+}
+li .delFile{
+	height:20px;
+	width:20px;
+	background:url('../img/delete.png');
+	display:none;
+	position: absolute;
+	right: 0;
+	top: 22px;
+}
+
+li:hover a.dragoff, li:hover a.delFile {
+	display: inline-block;
+}
+#drop.writeOnly li:hover a.dragoff,#drop.readOnly li:hover a.delFile ,#drop.writeOnly li:hover a.delFile{
+	display:none;
+}
+
+
+
+#sorted-folders .buttons{
+	background: #eee;
+    position: absolute;
+    right: 5em;
+    width: 5.3em;
+}
+#sorted-folders .selected-folder .buttons {
+	background: #bbcccc;
+}
+
+
+#sorted-folders .buttons a {
+    height: 1.2em;
+    margin-left: 0.1em;
+    position: relative;
+    width: 1.2em;
+	display:none;
+}
+
+#sorted-folders tr:hover .buttons a, #sorted-folders td.buttons a:hover {
+    display: inline-block;
+}
+#sorted-folders tr:hover .buttons a.hide {
+    display: none;
+}
+	
+
+#sorted-folders td .zip{
+	background: url('../img/down.png');
+}
+#sorted-folders td .archive {
+	background: url('../img/archive.png');
+}
+#sorted-folders td .deleteFolder {
+	background: url('../img/delete.png');
+}
+#sorted-folders td .add_folder {
+	background: url('../img/add.png');
+}
+
+.rename_file {
+    display: none;
+    margin-left: -1em;
+    position: relative;
+    text-align: left;
+    width: 7em;
+    z-index: 700;
+}
+#fieldCover {
+	position: absolute;
+	margin: 0;
+	padding: 0;
+	left: 0;
+	top: 0;
+	bottom: 0;
+	right: 0;
+	overflow: hidden; 
+	background: gray;
+	opacity: .5;
+	filter: alpha(opacity = 50);
+	z-index:600
+}
+
+@media all and (min-width: 525px) { /* TABLET/DESKTOP */
+	#sort-wrap {
+		float:left;
+		width: 45%;
+		height:100%;
+	}
+	#fileArea {
+		margin:0;
+		float:right;
+		width: 49%;
+		height:96%;
+	}
+	#sort-form thead tr {
+		width:40%;
+	}
+}

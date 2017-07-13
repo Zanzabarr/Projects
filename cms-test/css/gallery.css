@@ -1,0 +1,189 @@
+#jsgallery {
+ 
+  background: url(../images/bottom-logo-strip.png) repeat-x;
+	width:100%;
+	margin: 1em 0 0 0;
+	height:98px;
+	-webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+	-moz-box-sizing: border-box;    /* Firefox, other Gecko */
+	box-sizing: border-box;         /* Opera/IE 8+ */
+	padding: 0 0 0 0;
+}
+
+#gallery-title {
+	text-align:center;
+	color:#000;
+	font-weight:600;
+	font-size:.95em;
+	margin-bottom:-1em;
+	font-family:"Open Sans", sans-serif;
+}
+/*
+  root element for the scrollable.
+  when scrolling occurs this element stays still.
+  */
+.scrollable {
+
+    /* required settings */
+    position:relative;
+    overflow:hidden;
+    width: 83%;
+    height:94px;
+	top: 0;
+	
+}
+
+/*
+   root element for scrollable items. Must be absolutely positioned
+   and it should have a extremely large width to accomodate scrollable
+   items.  it's enough that you set the width and height for the root
+   element and not for this element.
+*/
+.scrollable .items {
+    /* this cannot be too large */
+    width:2000em;
+    position:absolute;
+	clear:both;
+}
+
+.items div {
+    float:left;
+    width:999px;
+	background: transparent;
+	padding-left:5px;
+}
+
+/* single scrollable item */
+.scrollable img {
+    float:left;
+    margin:23px 5px 5px 5px;
+    
+    padding:1.5% 3.9% 2% .5%;
+    /*width:150px;
+	height:42px;*/
+	
+}
+a.fancy {
+	cursor:hand;
+	cursor:pointer;
+}
+
+/* active item */
+.scrollable .active {
+    border:2px solid #000;
+    position:relative;
+    cursor:hand;
+	cursor:pointer;
+}
+
+
+/* this makes it possible to add next button beside scrollable */
+.scrollable {
+    float:left;
+}
+
+/* prev, next, prevPage and nextPage buttons */
+a.browse {
+    display:block;
+    width:54px;
+    height:98px;
+    float:left;
+    margin: 0 0 0 2.83%;
+    cursor:pointer;
+    font-size:1px;
+	position:relative;
+}
+
+/* right */
+
+a.right { 
+	background:url(../images/right-scroll-arrow.png) no-repeat;
+	clear:right;
+	right:-29px;
+	top: 25px;
+	opacity:1.0;
+	float: right;
+	display: none; /*for now, there are no more logos and psd does not show scroller */
+	
+}
+a.right:hover, a.right:active { opacity:.9; } 
+
+
+/* left */
+a.left {
+	background:url(../images/left-scroll-arrow.png) no-repeat;
+	margin-left:-10px;
+	margin-right:20px;
+	opacity:1.0;
+	
+	
+}
+a.left:hover, a.left:active { opacity:.9; } 
+
+/* up and down */
+a.up, a.down  {
+    background:url(/media/img/scrollable/arrow/vert_large.png) no-repeat;
+    float: none;
+    margin: 10px 50px;
+}
+
+/* up */
+a.up:hover { background-position:-30px 0; }
+a.up:active { background-position:-60px 0; }
+
+/* down */
+a.down { background-position: 0 -30px; }
+a.down:hover { background-position:-30px -30px; }
+a.down:active { background-position:-60px -30px; }
+
+
+/* disabled navigational button */
+a.disabled {
+    visibility:hidden !important;
+}
+
+/*******************************************/
+
+
+@media (min-width: 550px) and (max-width: 899px) {
+
+#jsgallery {
+	width:100%;
+	margin: 1em 0 0 0;
+	height:98px;
+	-webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+	-moz-box-sizing: border-box;    /* Firefox, other Gecko */
+	box-sizing: border-box;         /* Opera/IE 8+ */
+	padding: 0 0 0 10px;
+}
+
+.scrollable {
+
+    /* required settings */
+    position:relative;
+    overflow:hidden;
+    width: 70%;
+    height:94px;
+	top: 0;
+	
+}
+
+.scrollable img {
+	
+    float: left;
+    margin: 10px 5px 5px;
+    padding: 2% 1.9% 2% 0.5%;
+}
+
+a.right { 
+	background:url(../images/arrow-next.png) no-repeat;
+	clear:right;
+	right:0;
+	opacity:1.0;
+	float: right;
+}
+
+
+
+
+}

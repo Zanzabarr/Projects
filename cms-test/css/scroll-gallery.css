@@ -1,0 +1,173 @@
+.scrollerPlaceholder {
+width: 100%;
+max-width: 1580px;
+margin: 0 auto;
+background: #000000;
+margin-top: -1.5em;
+padding: 1% 0 1% 0;
+text-align: center;
+}
+
+#scroll-gallery {
+	background:#000;
+	width:260px;
+	margin:0px auto;
+	height:140px;
+	-webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+	-moz-box-sizing: border-box;    /* Firefox, other Gecko */
+	box-sizing: border-box;         /* Opera/IE 8+ */
+	padding:10px 0 0 10px;
+}
+
+#gallery-title {
+	text-align:center;
+	color:#fff;
+	font-weight:600;
+	font-size:.95em;
+	margin-bottom:-1em;
+	font-family:"Open Sans", sans-serif;
+}
+/*
+  root element for the scrollable.
+  when scrolling occurs this element stays still.
+  */
+.scrollable {
+    /* required settings */
+    position:relative;
+    overflow:hidden;
+    width: 187px;
+    height:120px;
+	float:left;
+}
+
+/*
+   root element for scrollable items. Must be absolutely positioned
+   and it should have a extremely large width to accomodate scrollable
+   items.  it's enough that you set the width and height for the root
+   element and not for this element.
+*/
+.scrollable .items {
+    /* this cannot be too large */
+    width:2000em;
+    position:absolute;
+	clear:both;
+}
+
+.items div {
+    float:left;
+    width:945px;
+	background:#000;
+	padding-left:5px;
+}
+
+/* single scrollable item */
+.scrollable .catscroll {
+    float:left;
+    margin:2px 6px;
+    padding:10px;
+    width:183px;
+	height:115px;
+	display:table;
+	position:relative;
+	-webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+	-moz-box-sizing: border-box;    /* Firefox, other Gecko */
+	box-sizing: border-box;         /* Opera/IE 8+ */
+	background-image: -moz-linear-gradient( -90deg, rgb(84,182,205) 0%, rgb(88,193,217) 100%);
+	background-image: -webkit-linear-gradient( -90deg, rgb(84,182,205) 0%, rgb(88,193,217) 100%);
+	background-image: -ms-linear-gradient( -90deg, rgb(84,182,205) 0%, rgb(88,193,217) 100%);
+}
+.catscroll a {
+	background:none;
+	color:#fff;
+	border:1px solid #fff;
+	text-transform:uppercase;
+	display:table-cell;
+	vertical-align:middle;
+}
+.catscroll a:hover {
+	background-image:none;
+	background:#e9477d;
+}
+
+/* active item */
+.scrollable .active {
+    border:2px solid #000;
+    position:relative;
+    cursor:default;
+}
+
+/* prev, next, prevPage and nextPage buttons */
+a.browse {
+    display:block;
+    width:26px;
+    height:28px;
+    float:left;
+    margin:50px 0;
+    cursor:pointer;
+    font-size:1px;
+	position:relative;
+}
+
+/* right */
+
+a.right { 
+	background:url(../images/arrow-next.png) no-repeat;
+	clear:right;
+	right:-10px;
+	opacity:1.0;
+}
+a.right:hover, a.right:active { opacity:.9; }
+
+
+/* left */
+a.left {
+	background:url(../images/arrow-prev.png) no-repeat;
+	margin-left:0;
+	margin-right:5px;
+	opacity:1.0;
+	
+}
+a.left:hover, a.left:active { opacity:.9; }
+
+/* up and down */
+a.up, a.down  {
+    background:url(/media/img/scrollable/arrow/vert_large.png) no-repeat;
+    float: none;
+    margin: 10px 50px;
+}
+
+/* up */
+a.up:hover { background-position:-30px 0; }
+a.up:active { background-position:-60px 0; }
+
+/* down */
+a.down { background-position: 0 -30px; }
+a.down:hover { background-position:-30px -30px; }
+a.down:active { background-position:-60px -30px; }
+
+
+/* disabled navigational button */
+a.disabled {
+    opacity:.5;
+	cursor:default;
+}
+a.disabled:hover {
+	opacity:.5;
+}
+@media screen and (min-width: 580px) {
+	#scroll-gallery {
+		width:100%;
+	}
+	.scrollable {
+		width:88%;
+	}
+}
+
+@media screen and (min-width: 900px) {
+	.scrollerPlaceholder {
+		margin-top: -3.6em;
+	}
+	#scroll-gallery {
+		width:73%;
+	}
+}

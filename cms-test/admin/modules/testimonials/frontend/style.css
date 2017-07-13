@@ -1,0 +1,69 @@
+h1#testimonial-title {
+}
+
+.testimonial {
+    color: #333333;
+	margin-top:30px;
+    padding: 10px;
+	padding-bottom:20px;
+	font-style:italic;
+	font-size:0.85em;
+}
+
+.testimonial.active-test {
+    background-color:#fcbd11;
+    padding:8px;
+	border:2px solid #fcbd11;
+	border-radius:7px;
+	-moz-border-radius:7px;
+	-webkit-border-radius:7px;
+}
+
+#full-test {
+    text-align:left;
+    margin:0;
+    padding:0;
+    line-height:18px;
+	
+}
+
+#full-test p {
+	margin:0 0 1.1em 0;
+	padding:10px;
+	padding-left:0px;
+	font-family:Arial,Verdana;
+	font-size:1em;
+	font-style:italic;
+}
+
+#test-info {
+    text-align:left;
+    margin:-0.6em 0 0 0;
+    padding:0px;
+    line-height:18px;
+	font-family:Arial,Verdana;
+
+}
+
+
+.gradient-light {
+    border: 1px solid #999;
+    background-color:#EEEEEE;
+    
+    background-image: -ms-linear-gradient(bottom, #CCCCCC 0%, #EFEFEF 50%, #CCCCCC 100%);
+	/* Mozilla Firefox */
+    background-image: -moz-linear-gradient(bottom, #CCCCCC 0%, #EFEFEF 50%, #CCCCCC 100%);
+	/* Opera */
+    background-image: -o-linear-gradient(bottom, #CCCCCC 0%, #EFEFEF 50%, #CCCCCC 100%);
+	/* Webkit (Safari/Chrome 10) */
+    background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #CCCCCC), color-stop(1, #EFEFEF), color-stop(2, #CCCCCC));
+	/* Webkit (Chrome 11+) */
+    background-image: -webkit-linear-gradient(bottom, #CCCCCC 0%, #EFEFEF 50%, #CCCCCC 100%);
+	/* W3C Markup, IE10 Release Preview */
+    background-image: linear-gradient(to top, #CCCCCC 0%, #EFEFEF 50%, #CCCCCC 100%);
+}
+
+.testimonial-name {
+	font-style:normal;
+	margin-top:0.6em;
+}

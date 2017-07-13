@@ -1,0 +1,57 @@
+Options -Indexes
+# MARK SPAM DOMAINS/IP AS SPAMBOT
+# FROM https://github.com/Stevie-Ray/htaccess-spam-blacklist-block/blob/master/.htaccess
+SetEnvIfNoCase Referer 7makemoneyonline.com spambot=yes
+SetEnvIfNoCase Referer acunetix-referrer.com spambot=yes
+SetEnvIfNoCase Referer adcash.com spambot=yes
+SetEnvIfNoCase Referer baixar-musicas-gratis.com spambot=yes
+SetEnvIfNoCase Referer blackhatworth.com spambot=yes
+SetEnvIfNoCase Referer buttons-for-website.com spambot=yes
+SetEnvIfNoCase Referer cenokos.ru spambot=yes
+SetEnvIfNoCase Referer cenoval.ru spambot=yes
+SetEnvIfNoCase Referer cityadspix.com spambot=yes
+SetEnvIfNoCase Referer darodar.com spambot=yes
+SetEnvIfNoCase Referer descargar-musicas-gratis.com spambot=yes
+SetEnvIfNoCase Referer econom.co spambot=yes
+SetEnvIfNoCase Referer edakgfvwql.ru spambot=yes
+SetEnvIfNoCase Referer fbdownloader.com spambot=yes
+SetEnvIfNoCase Referer gobongo.info spambot=yes
+SetEnvIfNoCase Referer iedit.ilovevitaly.com spambot=yes
+SetEnvIfNoCase Referer ilovevitaly.com spambot=yes
+SetEnvIfNoCase Referer ilovevitaly.co spambot=yes
+SetEnvIfNoCase Referer ilovevitaly.info spambot=yes
+SetEnvIfNoCase Referer ilovevitaly.org spambot=yes
+SetEnvIfNoCase Referer ilovevitaly.ru spambot=yes
+SetEnvIfNoCase Referer iskalko.ru spambot=yes
+SetEnvIfNoCase Referer luxup.ru spambot=yes
+SetEnvIfNoCase Referer make-money-online.7makemoneyonline.com spambot=yes
+SetEnvIfNoCase Referer maps.ilovevitaly.com spambot=yes
+SetEnvIfNoCase Referer myftpupload.com spambot=yes
+SetEnvIfNoCase Referer o-o-6-o-o.ru spambot=yes
+SetEnvIfNoCase Referer o-o-8-o-o.ru spambot=yes
+SetEnvIfNoCase Referer priceg.com spambot=yes
+SetEnvIfNoCase Referer responsinator.com spambot=yes
+SetEnvIfNoCase Referer годом.рф spambot=yes
+SetEnvIfNoCase Referer savetubevideo.com spambot=yes
+SetEnvIfNoCase Referer screentoolkit.com spambot=yes
+SetEnvIfNoCase Referer semalt.com spambot=yes
+SetEnvIfNoCase Referer seoexperimenty.ru spambot=yes
+SetEnvIfNoCase Referer shopping.ilovevitaly.ru spambot=yes
+SetEnvIfNoCase Referer slftsdybbg.ru spambot=yes
+SetEnvIfNoCase Referer socialseet.ru spambot=yes
+SetEnvIfNoCase Referer srecorder.com spambot=yes
+SetEnvIfNoCase Referer st3.cwl.yahoo.com spambot=yes
+SetEnvIfNoCase Referer superiends.org spambot=yes
+SetEnvIfNoCase Referer vodkoved.ru spambot=yes
+SetEnvIfNoCase Referer websocial.me spambot=yes
+SetEnvIfNoCase Referer ykecwqlixx.ru spambot=yes
+SetEnvIfNoCase Referer yougetsignal.com spambot=yes
+
+SetEnvIfNoCase REMOTE_ADDR "217\.23\.7\.130" spambot=yes
+SetEnvIfNoCase REMOTE_ADDR "78\.110\.60\.230" spambot=yes
+SetEnvIfNoCase REMOTE_ADDR "193\.227\.240\.37" spambot=yes
+SetEnvIfNoCase REMOTE_ADDR "193\.227\.240\.38" spambot=yes
+
+Order allow,deny
+Allow from all
+Deny from env=spambot

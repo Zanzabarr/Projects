@@ -1,0 +1,584 @@
+/*
+Editing notes
+
+To change slider image padding/margin/border, change the rules n
+.sliderOuter img {}
+
+To change the slider active slide border rules change
+.sliderActiveBorder .activeLI img {}
+*/
+
+
+/* special cases for ie8 in front-end edit mode */
+.mce-content-body .jsGallery  .slide {display:none;}
+.mce-content-body .jsGallery .slide:nth-of-type(1) {display:block;}
+.mce-content-body .jsGallery input {display:none;}
+.mce-content-body .jsGallery .html-caption {display:none;}
+.jsGallery {
+	width: 100%;  /* changed by WG */
+	margin: 0 auto 3em;
+	clear:both;
+}
+
+.jsGallery .respGallery {
+	background:url("../images/uiLoader.gif") no-repeat scroll center center rgba(0, 0, 0, 0);
+	text-align:center;
+}
+.jsGallery .respGallery.hideSpinner {
+	background:none;
+}
+.jsGallery .singleGallery a {
+    display: block;
+    text-align: center;
+}
+.jsGallery .slide  img {
+    /* Boilerplate responsive images CSS */
+    width: auto;
+    max-width: 100%;
+    height: auto;
+	max-height:100%;
+	vertical-align:bottom;
+}
+
+.jsGallery .respGallery .slide img {
+	display:none;
+	margin:0 auto;
+}
+ 
+.jsGallery .galleryWrap {    
+    -moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+    margin: 1em 0 0;
+    position: relative;
+    width: 100%;
+}
+
+.jsGallery .placeholder {
+    /* Making it invisible lets the parent container adjust its size */
+    visibility : hidden;
+	-moz-transition:width 2s, height 2s;
+    -webkit-transition:width 2s, height 2s;
+    -o-transition:width 2s, height 2s;
+    transition:width 2s, height 2s;  
+} 
+
+.jsGallery .galleryNav { 
+    bottom: 0;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+	display:none;
+}
+
+.jsGallery .galleryNav a {
+	display:block;
+    position: absolute;
+    height: 100%;
+	width: 18%;
+	z-index: 1100;
+	transition: all 100ms;
+	-webkit-transition: all 100ms; /* Safari */
+}
+.jsGallery .galleryNav a span {
+	width: 20%;
+	opacity:.1;
+	transition: all 100ms;
+	-webkit-transition: all 100ms; /* Safari */
+}
+.jsGallery .galleryNav img {
+	xbackground: none repeat scroll 0 0 white;
+    xborder-radius: 0 5px 5px 0;
+    bottom: 0;
+    margin: auto;
+    padding: 10%;
+    position: absolute;
+    top: 0;
+}
+.jsGallery .galleryNav .next img {
+	border-radius: 5px 0 0 5px;
+	right:0;
+}
+
+.jsGallery .galleryWrap .galleryNav a span {
+	-webkit-transition: opacity .35s ease-in-out;
+	-moz-transition: opacity .35s ease-in-out;
+	-ms-transition: opacity .35s ease-in-out;
+	-o-transition: opacity .35s ease-in-out;
+	transition: opacity .35s ease-in-out;
+}	
+
+.jsGallery .galleryWrap:hover .galleryNav a span {
+	opacity:.3;
+}
+.jsGallery .galleryWrap .galleryNav a:hover span {
+	opacity: 1;
+}
+
+.jsGallery .galleryNav .prev {
+    padding-right: 10%;
+}
+.jsGallery .galleryNav .prev:hover {
+}
+.jsGallery .galleryNav .next:hover {
+}
+
+.jsGallery .galleryNav .next {
+    padding-left: 10%;
+    right: 0;
+	border-radius: 0px 5px 5px 0px; 
+	-moz-border-radius: 0px 5px 5px 0px; 
+	-webkit-border-radius: 0px 5px 5px 0px; 
+}
+.jsGallery .galleryNav .prev span, .jsGallery .galleryNav .next span {
+    bottom: 0;
+    display: block;
+    position: absolute;
+    top: 0;
+    width: 100%;
+}
+.jsGallery .galleryNav .next span {
+	right: 0;
+}
+
+.jsGallery .explodable .gallery_group {
+	cursor:url('images/Zoom-In.png'),auto;
+}
+
+
+/* main wrapper for navigation */
+.jsGallery .galleryNavWrap, .jsGallery .gallerySliderWrap {
+	position:relative;
+	
+}	
+
+.jsGallery .galleryLoading {    
+	background-image: url("../images/uiLoader.gif");
+    height: 20px;
+    margin: 1em auto;
+    width: 20px;
+}
+
+/**** Wrapper Arrows, previous and next buttons styles ****/
+/* shrink-wrap the gallery navigation buttons( all elements are inline-block for centering) */
+.jsGallery .gallery-previous, .jsGallery .gallery-next 	{	
+   xborder: 1px solid #898989; /* removed by WG */
+    display: inline-block;
+    height: 6.1em;
+    position: absolute;
+    top: 0;
+    width: 2em;
+    z-index: 500;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+	
+}
+
+.jsGallery .galleryNavWrap .gallery-previous a, .jsGallery .galleryNavWrap .gallery-next a {
+	opacity: 0.3;
+	filter:alpha(opacity=30);
+	-webkit-transition: opacity .35s ease-in-out;
+	-moz-transition: opacity .35s ease-in-out;
+	-ms-transition: opacity .35s ease-in-out;
+	-o-transition: opacity .35s ease-in-out;
+	transition: opacity .35s ease-in-out;
+}
+.jsGallery .galleryNavWrap:hover .gallery-previous a, .jsGallery .galleryNavWrap:hover .gallery-next a {
+	opacity:0.7;
+	filter:alpha(opacity=70);
+}
+.jsGallery .galleryNavWrap .gallery-previous a:hover, .jsGallery .galleryNavWrap .gallery-next a:hover {
+	opacity:1;
+	filter:alpha(opacity=100);
+}
+.jsGallery .gallery-previous {
+	left: -1.1em;
+	border-right: 0;
+}
+.jsGallery .gallery-next {    
+	right: -1.7em;
+	border-left: 0;
+
+}
+/* style the arrows */
+.jsGallery .gallery-previous a, .jsGallery .gallery-next a {
+    border: 0 none;
+    color: #81AD0A;
+    display: inline-block;
+    height: 100%;
+    outline: 0 none;
+    text-decoration: none;
+    vertical-align: baseline;
+    width: 100%;;
+}
+.jsGallery .gallery-previous a:hover, .jsGallery .gallery-next a:hover {
+    color: #000000;
+}
+.jsGallery .gallery-previous img, .jsGallery .gallery-next img  {
+    position: absolute;
+    margin-top: 2.4em;
+}	
+.jsGallery .gallery-next img  {
+
+}
+/** Thumb Navigation Images **/
+/* Main wrapper for the images, width must have a value set (greater than the minimum size), although js will change it later */
+.jsGallery .galleryNavWrap{
+    display: none;
+	margin: 1em 5.5%;
+}
+.jsGallery .galleryNavWrap .galleryNavInner {
+    border: 1px solid #898989;
+    height: 6.8em;
+    margin: 0;
+    overflow: hidden;
+    position: relative;
+    width: 100%; /* removed by WG 
+    xbox-shadow: 1px 2px 10px rgba(0, 0, 0, 0.30);
+    x-moz-box-shadow: 1px 2px 10px rgba(0, 0, 0, 0.30);
+    x-webkit-box-shadow: 1px 2px 10px rgba(0, 0, 0, 0.30);
+	x-moz-box-sizing: border-box;
+	x-webkit-box-sizing: border-box;
+	xbox-sizing: border-box;  */
+}
+.jsGallery .galleryNavWrap .galleryNavOuter {
+    left: 0;
+    margin: 12px 2%;
+    padding: 0;
+    position: absolute;
+	width: 99999px;
+	
+}
+
+.jsGallery .galleryNavWrap ul {
+    margin: 0;
+    padding: 0;
+    display: inline-block;
+}
+
+.jsGallery .galleryNavWrap ul:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+.jsGallery .galleryNavWrap li {
+    display: inline;
+}
+/* style the look of the thumbs' borders */
+.jsGallery .galleryNavWrap li {
+	xborder: 2px solid #d9d9d9;
+    display: inline-block;
+    float: left;
+    margin: 0 6px;
+    overflow: hidden;
+    position: relative;
+	outline: 0;
+	width: 84px;
+	height:84px;
+	}
+.jsGallery .galleryNavWrap li:first-child {
+    margin-left: 0;
+}
+
+.jsGallery .galleryNavWrap li > a{
+    bottom: 0;
+    left: 0;
+    margin: auto;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+.jsGallery .galleryNavWrap li img {
+	border: 2px solid #000000;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+.jsGallery .galleryNavWrap li:hover img, .jsGallery .galleryNavWrap li.activeLI img {
+	border: 2px solid #E13766;
+}
+
+/* set the width of the thumbs*/
+
+.jsGallery .galleryNavWrap li	{}
+
+
+/**************************           Caption Styles     ******************************/			
+.jsGallery .captionWrap {
+	width: 90%;
+	position:relative;
+	list-style-type: none;
+	padding: 0px;
+	margin: 1em 5%;
+}	
+.jsGallery .image_caption {
+    color: #000000;
+    display: none;
+    font-size:1em;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    text-align: center;
+    top: 0;
+    width: 100%;
+}
+
+.jsGallery .image_caption  h3{
+	margin: 0;
+}
+
+.jsGallery .HTMLcaptionWrap {
+    list-style-type: none;
+    padding: 0;
+    position: relative;
+    width: 90%;
+	margin: 0 5%;
+	
+}	
+.jsGallery .html-caption {
+    color: #000000;
+    display: none;
+    margin: 1em 0;
+    padding: 0;
+    xposition: absolute;
+    top: 0;
+    width: 100%;
+}
+
+.jsGallery .insetCaption {
+	background: #999;
+	/* Fallback for web browsers that doesn't support RGBa */
+	background: rgb(0, 0, 0) transparent;
+	/* RGBa with 0.6 opacity */
+	background: rgba(0, 0, 0, 0.4);
+	bottom: -1px;
+    color: white;
+    opacity: 0.8;
+    padding-bottom: 0.5%;
+    padding-top: 2.5%;
+    position: absolute;
+    text-align: center;
+    width: 100%;
+	display:none;
+}
+
+.jsGallery .insetCaption h3{
+	color:white;
+}
+
+.jsGallery .galleryNavWrap.stackedNav {
+    margin-left: 5%;
+    margin-right: 5%;
+    min-width: 14.2em;
+    width: 90%;
+}
+
+.jsGallery .galleryNavWrap ul {
+    display: inline-block;
+}	
+.jsGallery .galleryNavWrap.stackedNav li {
+    -moz-box-sizing: border-box;
+    margin: .4em;
+    xwidth: 12.28%;
+	min-width: 3em;
+}
+
+.jsGallery .galleryNavWrap.stackedNav li:first-child {
+    xmargin-left: .4em;
+}
+
+
+/* ####################################################### */
+/*                           NEW                           */
+/* ####################################################### */
+
+
+/** Thumb Navigation Images **/
+/* Main wrapper for the images, width must have a value set (greater than the minimum size), although js will change it later */
+.jsGallery .gallerySliderWrap{
+    xdisplay: none;
+	margin: 1em 5.5%;
+}
+.jsGallery .gallerySliderWrap .gallerySliderInner {
+    border: 1px solid #898989;
+    height: 6.8em;
+    margin: 0;
+    overflow: hidden;
+    position: relative;
+    width: 100%; /* removed by WG 
+    xbox-shadow: 1px 2px 10px rgba(0, 0, 0, 0.30);
+    x-moz-box-shadow: 1px 2px 10px rgba(0, 0, 0, 0.30);
+    x-webkit-box-shadow: 1px 2px 10px rgba(0, 0, 0, 0.30);
+	x-moz-box-sizing: border-box;
+	x-webkit-box-sizing: border-box;
+	xbox-sizing: border-box;  */
+}
+.jsGallery .gallerySliderWrap .gallerySliderOuter {
+    left: 0;
+    margin: 1em 0;
+    padding: 0;
+    position: absolute;
+	width: 9999999px;
+	
+}
+
+.jsGallery .gallerySliderWrap ul {
+    margin: 0;
+    padding: 0;
+    display: inline-block;
+}
+
+.jsGallery .gallerySliderWrap ul:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+.jsGallery .gallerySliderWrap li {
+    display: inline;
+}
+/* style the look of the thumbs' borders */
+.jsGallery .gallerySliderWrap li {
+	xborder: 2px solid #d9d9d9;
+    display: inline-block;
+    float: left;
+    margin: 0 10px;
+    xoverflow: hidden;
+    position: relative;
+	outline: 0;
+	xwidth: 84px;
+	height:75px;
+	}
+.jsGallery .gallerySliderWrap li:first-child {
+    margin-left: 0;
+}
+
+.jsGallery .gallerySliderWrap li > a{
+   xbottom: 0;
+    xleft: 0;
+   xmargin: auto;
+    xposition: absolute;
+    xright: 0;
+    xtop: 0;
+}
+.jsGallery .gallerySliderWrap li img {
+	border: 2px solid #000000;
+    xbottom: 0;
+    xleft: 0;
+    xmargin: auto;
+    xposition: absolute;
+    xright: 0;
+    xtop: 0;
+}
+.jsGallery .gallerySliderWrap li:hover img, .jsGallery .gallerySliderWrap li.activeLI img {
+	border: 2px solid #E13766;
+}
+
+/* set the width of the thumbs*/
+
+.jsGallery .gallerySliderWrap li	{}
+
+.jsGallery .gallerySliderWrap ul {
+    display: inline-block;
+}	
+.jsGallery .gallerySliderWrap.stackedNav li {
+    -moz-box-sizing: border-box;
+    xmargin: 0 1% 2%;
+    xwidth: 12.28%;
+	min-width: 3em;
+}
+
+.jsGallery .gallerySliderWrap.stackedNav li:first-child {
+    xmargin-left: 1%;
+}
+
+.sliderWrap {
+	width:100%;
+	padding: 0 2em;
+	position:relative;
+	box-sizing: border-box;
+	overflow:hidden;
+	
+	placeholderstyles:;
+	xbackground:blue;
+}
+
+.sliderOuter {
+	margin:0 auto;
+	overflow:hidden;
+	position:relative;
+	
+	
+	widthsetdynamically:;
+	
+	placeholderstyles:;
+	xbackground:green;
+	xwidth: 20em;
+}
+
+.sliderWrap ul {
+	list-style-type: none;
+    padding: 0px;
+    margin: 0px;
+	width:99999px;
+	position:absolute;
+	top:0;
+	left:0;
+} 
+.sliderWrap ul li{
+	float:left;
+	margin:0;	
+}
+.sliderOuter img {
+	border:1px solid transparent;
+	margin:5px;
+	vertical-align: baseline;
+	padding:5px;
+}
+.sliderImageBorder .sliderOuter img {
+	border:1px solid gray;
+}
+.sliderWrap .sliderPlaceholder{
+	visibility:hidden;
+}
+
+
+.slider-left, .slider-right {
+	position:absolute;
+	top:0;
+	bottom:0;
+	width: 2em;
+	margin: auto;
+	
+	placeholderstyles:;
+	xbackground:gray;
+}
+.slider-left {
+	left:0;
+}
+.slider-right {
+	right:0;
+}
+
+.slider-left img, .slider-right img {
+	margin:auto;
+	position:absolute;
+	top:0;
+	bottom:0;
+	left:0;
+	right:0;
+}
+
+.frontSlide {
+	
+	xbackground:purple;
+}
+
+.sliderImageBorder.sliderActiveBorder .activeLI img, .sliderWrap ul li:hover a img {
+	
+	border:1px solid red;
+}

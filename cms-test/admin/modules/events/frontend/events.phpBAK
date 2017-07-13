@@ -1,0 +1,113 @@
+<?php //session_start();
+
+/* variables passed along from index.php (this is an include from index)
+**	$_config	: contains all config data from admin/includes/config.php
+**	$uri		: array of uri components: $uri[0] is the base (events in this case)
+**	$module = 'events';
+**	$pages		: pages object defined in admin/includes/functions.php - used to build menus and keep track of page info
+*/
+
+/* variables passed along from modules/events/frontend/head.php (via index.php)
+**	$options		: (global) evebts page options (data includes events home page data)
+**	$base_url		: (global) the base site path
+** 	$arOutput		: display data
+*/
+function buildCatList($cats)
+{ 
+	global $base_url, $_config, $uri;
+	
+?>
+	<?php if (count($cats) > 0) 
+	{ ?>
+		<!--<div id="category-list-container">-->
+        <ul id="left_menu">
+			<li class='base'><span id='menutitle'><a id='topparent' href='<?php echo $_config['path']['events'] ?>'>All Events</a></span>
+			<ul class='side-submenu'>
+		<?php
+		foreach($cats as $cat)
+		{ 
+			$selected = $cat['url'] == $uri[2] ? 'selected' : '';
+			?>
+			<li class="<?echo $selected;?>"><a class="subpage" href="<?php echo $_config['path']['events'] .'category/'. $cat['url']; ?>"> <?php echo $cat['title']; ?> </a></li>
+		<?php  
+		} ?>
+        </ul>
+		</li>
+		</ul><!-- end left_menu -->
+		<!--</div><!-- category-list-container -->
+	<?php
+	}
+}
+
+function buildRecent($recentEvents)
+{
+	global $base_url, $_config;
+?>			
+			<div id="recent-posts-container">
+				<h2 class="subpage ">Upcoming Events</h2>
+                <ul class="blog-list">
+			<?php // build the recent list
+			foreach($recentEvents as $rec)
+			{ 	?>
+				<li><a  class="subpage" href="<?php echo $_config['path']['events'] .$rec['url']; ?>"> <?php echo $rec['title']; ?> </a></li>
+				<?php
+			}
+			?>
+			</ul>
+            </div><!-- recent-posts-container -->
+<?php
+}
+//----------------------------begin html----------------------------------------------
+
+// this section has been entered from /index.php and this is the beginning of:
+?>
+<div id="left-content">
+<?include('includes/inc-page-video.php');?>
+	<!-- side menu -->
+<?php
+// if there is more than one category, build a catetory list
+if ($num_of_cats > 0) buildCatList($cats);
+else buildCatList(array());
+
+// build most recent list
+//if ($num_of_recent > 0) buildRecent($recent_events);
+
+?>
+		<div style="clear:both;line-height:0;"></div>
+
+	<div id="reglink">
+		<img src="images/registration.jpg" />
+		<a href="registration">CAMP REGISTRATION</a>
+	</div><!-- end reglink-->
+</div><!-- end left-content-->
+<?
+	echo "<div id='crust' class='shortbread'>
+	<div id='crumbtext' style='padding-left:2em;'>
+		<div class='clear'></div>
+		<h1>Calendar of Events</h1>
+	</div>
+	<div class='clear' style='height:2em;'></div>
+	</div>";
+	echo "<div id='mobileVid'>";
+	include('includes/inc-page-video.php');
+	echo "</div><!-- end mobileVid-->";
+ echo '<div id="right-content" style="width:65%;">';
+// make the module path available to js
+?>
+<input type="hidden" id="module_path" value="<?php echo $_config['admin_url'] . 'modules/events/inc-events.php'; ?>" />
+<div id="page-content">
+	<div id='events-body'>
+	<?php
+	// display the appropriate page portions:
+	if (isset($arOutput['singleEvent'])) echo $arOutput['singleEvent'];
+	elseif (isset($arOutput['eventPag'])) 
+	{
+		echo $arOutput['eventPag'];
+	} else {
+		echo $arOutput['catPag'];
+	}
+
+	?>
+	</div><!-- end events body -->
+</div><!-- end page-content -->
+</div><!-- end right-content-->

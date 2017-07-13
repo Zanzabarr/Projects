@@ -1,0 +1,221 @@
+div#container {
+	
+}
+div.content {
+	display: none;
+	clear: both;
+}
+
+div.content a, div.navigation a {
+	text-decoration: none;
+}
+div.content a:hover, div.content a:active {
+	text-decoration: underline;
+}
+
+div.navigation a.pageLink {
+	height: 77px;
+	line-height: 77px;
+}
+
+div.slideshow-container,
+div.loader,
+div.slideshow a.advance-link {
+
+}
+
+div.slideshow-container {
+	position: relative;
+	clear: both;
+
+	
+
+}
+
+div.loader {
+	position: absolute;
+	top: 0;
+	left: 0;
+	background-image: url('../images/uiLoader.gif');
+	background-repeat: no-repeat;
+	background-position: center;
+}
+
+div.slideshow a.advance-link {
+	display: block;
+	text-align: left;
+
+}
+
+
+div.slideshow a.advance-link:hover,
+div.slideshow a.advance-link:active,
+div.slideshow a.advance-link:visited {
+	text-decoration: none;
+}
+div.slideshow a.advance-link:focus {
+	outline: none;
+}
+
+div.slideshow img {
+	border-style: solid;
+	border-color: black;
+	border-width: 2px;
+	vertical-align: top;
+	
+	background: #FFF; 
+	border-top: 1px solid #ddd;
+	border-left: 1px solid #ddd; 
+	border-right: 1px solid #999;
+	border-bottom: 1px solid #999;
+	padding: 25px; 
+	margin-bottom: 15px; 
+
+	-moz-border-radius: 8px; 
+	border-radius: 8px;
+}
+
+
+div.slideshow-container {margin-top: 0px;}
+
+
+div.image-desc {
+	line-height: 1.3em;
+	padding-top: 12px;
+}
+div.photo-index {
+	color: #777;
+	padding: 0 12px;
+	float: left;
+	position: relative;
+	top: 20px;
+}
+
+div.navigation a.pageLink {
+	display: block;
+	position: relative;
+	float: left;
+	margin: 2px;
+	width: 16px;
+	background-position:center center;
+	background-repeat:no-repeat;
+}
+div.navigation a.pageLink:focus {
+	outline: none;
+}
+
+ul.thumbs {
+	position: relative;
+	float: left;
+	margin: 0;
+	padding: 0;
+	color:white;
+}
+
+ul.thumbs li {
+	height: 90px;
+	width: 80px;
+	float: left;
+	padding: 0;
+	margin: 2px;
+	list-style: none;
+}
+a.thumb {
+	padding: 1px;
+	display: block;
+}
+a.thumb:focus {
+	outline: none;
+}
+ul.thumbs img {
+	border: none;
+	display: block;
+}
+div.pagination {
+	clear: both;
+	position: relative;
+	left: -50%;
+}
+div.pagination a, div.pagination span.current, div.pagination span.ellipsis {
+	position: relative;
+	display: block;
+	float: left;
+	margin-right: 2px;
+	padding: 4px 7px 2px 7px;
+	border: 1px solid #ccc;
+}
+div.pagination a:hover {
+	text-decoration: none;
+}
+div.pagination span.current {
+	font-weight: bold;
+}
+div.pagination span.ellipsis {
+	border: none;
+	padding: 5px 0 3px 2px;
+}
+
+div.gallery-gutter {
+	clear: both;
+	padding-bottom: 20px;
+}
+
+span.image-caption {
+	display: block;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+#caption-container {
+	clear:both;
+	width: 690; 
+	padding: 0 10px;
+	line-height:80px;
+	height:80px;
+
+	
+}
+
+#caption {
+	color: #777;
+	padding: 0 12px;
+	position: relative;
+	top: 0px;
+	font-size:12px;
+}
+
+div.image-desc {
+	line-height: 1.3em;
+	padding-top: 0px;
+}
+
+div.navigation a.prev {
+	background-image: url(../images/prevPageArrow.gif);
+}
+div.navigation a.next {
+	background-image: url(../images/nextPageArrow.gif);
+}
+div.loader {
+	background-image: url(../images/uiLoader.gif);
+}
+
+ul.thumbs li.selected a.thumb {
+	background: #fff;
+}
+div.pagination a:hover {
+	background-color: #eee;
+}
+div.pagination span.current {
+	background-color: #000;
+	border-color: #000;
+	color: #fff;
+}
+.thumb-del {
+	display: none;
+	color: #EE262B;
+}
+
+#no-image {
+	margin: 25px 220px;
+}

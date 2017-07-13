@@ -1,0 +1,1 @@
+<?php // if the site has site specific functions, throw them here!

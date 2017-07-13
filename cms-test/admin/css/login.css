@@ -1,0 +1,20 @@
+@charset "utf-8";
+/* CSS Document */
+
+body {background:url(../images/login_bg.jpg)}
+.error {background:#FFE1E1; border: solid 1px #900; margin: 0 0 0 10px;padding: 10px; font-family: Tahoma, Geneva, sans-serif; width: 90%; text-align: center; margin: auto; }
+.logout {background:#9CF; border: solid 1px #3B80BC; margin: 0 0 0 10px;padding: 10px; font-family: Tahoma, Geneva, sans-serif; width: 90%; text-align: center; margin: auto; }
+
+
+.login_wrapper {text-align:center;margin: 100px auto; width: 200px; font-family: 'Oswald', sans-serif;}
+.login_wrapper input[type="text"] {margin:10px 0;color: #cccccc;border: 3px solid #f0f0f0; background: #f0f0f0;font-size: 16px; font-family:'Oswald', sans-serif;padding: 5px 10px; width: 194px;}
+.login_wrapper input[type="text"]:focus{color: #222;border: 3px solid #3b80bc; background: #f0f0f0;}
+.login_wrapper input[type="password"]{margin:10px 0; color: #cccccc; border: 3px solid #f0f0f0; background: #f0f0f0;font-size: 16px; font-family:'Oswald', sans-serif;padding: 5px 10px; width: 194px;}
+.login_wrapper input[type="password"]:focus{color: #222;border: 3px solid #3b80bc; background: #f0f0f0;}
+.login_wrapper #submit {margin: 20px;width: 94px; height: 45px; background:url(../images/login_submit.png); border: none; cursor:pointer; }
+.login_wrapper #submit:hover {background:url(../images/login_submit_hover.png)}
+.login_wrapper #reset {margin: 20px;width: 94px; height: 45px; background:url(../images/reset.png); border: none; cursor:pointer; }
+.login_wrapper #reset:hover {background:url(../images/reset_hover.png)}
+.login_copyright{text-align:center; color: #a2a2a2; font-family:Arial, Helvetica, sans-serif; font-size: 10px;}
+.login_copyright a{color: #3b80bc; text-decoration:none}
+.login_copyright a:hover{color:#FFF}

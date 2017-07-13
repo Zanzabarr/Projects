@@ -1,0 +1,523 @@
+/* CSS Document */
+
+/* drop stikitab in events calendar */
+.stikitab { display:none !important; }
+
+/* calendar */
+.today { background:#ebebeb; }
+.calendar {
+	position:relative;
+	width:100%;
+	margin:0 auto;
+	min-width:320px;
+}
+.calendar-day { 
+	display:table-cell;
+	float:left;
+	font-size:11px; 
+	position:relative;
+	margin-bottom:.2em;
+	
+	min-height:100px; WILL_EXPAND_IF_NEEDED_BY_JQ:;
+	width:14.2857%;
+	
+	-webkit-box-shadow: inset 0px 0px 0px 1px rgba(0,0,0,0.15);
+	-moz-box-shadow: inset 0px 0px 0px 1px rgba(0,0,0,0.15);
+	box-shadow: inset 0px 0px 0px 1px rgba(0,0,0,0.15);
+}
+.non-day {
+	ppborder:1px solid #fff;
+	display:none;
+	
+	-webkit-box-shadow: none;
+	-moz-box-shadow: none;
+	box-shadow: none;
+}
+.calendar-day.non-day:hover { background: none; }
+.calendar-day:hover	{ background:#eceff5; }
+.calendar-day-head { background:#ccc; font-weight:bold; text-align:center; width:12.2%; min-width:60px; padding:5px; display:table-cell;float:left; }
+div.day-number {
+	background:#707070;
+	padding:2px 5px;
+	color:#fff;
+	font-family:"Arial", sans-serif;
+	font-size:14px;
+	font-weight:400;
+	text-align:left;
+	text-transform:uppercase;
+}
+#setview {
+	display:none;
+	float:right;
+	padding:0 10px;;
+}
+#setview #viewlink {
+	ppfont-size:.7em;
+	color:#00A651;
+	cursor: pointer;
+}
+#controlbar {
+	background:#000;
+	padding:.5em 0;
+	min-width:320px;
+	width:100%;
+	margin:0 auto;
+}
+#calcontrols {
+	font-family:"Arial", sans-serif;
+	float:none;
+	display:table;
+	margin:0 auto;
+}
+#print-btn {
+	background:url('../images/print.png') no-repeat #000 5px;
+	background-size: auto 80%;
+	width:16.8em;
+	opacity:1.0;
+	cursor:pointer;
+	display:none;
+	margin:0 auto;
+}
+#print-btn .print-text {
+	display:none;
+	color:#cdcdcd;
+	font-family:"Arial", sans-serif;
+	font-size:16px;
+	font-weight:600;
+	text-transform:uppercase;
+}
+#print-btn:hover {
+	opacity:.7;
+}
+#monthyear {
+	margin:0 .7em;
+	float:left;
+	min-width:210px;
+	text-align:center;
+}
+#monthyear h2 {
+	color:#fff;
+	font-size:24px;
+	margin:0;
+	font-weight:700;
+	font-family:"Arial", sans-serif;
+}
+#cat-container, #exp-container {
+	display:block;
+	float:none;
+	margin:0 auto;
+	width:14em;
+}
+.cat-toggle, .exp-toggle {
+	display:block;
+	padding:.25em .5em;
+	font-family:"Arial", sans-serif;
+	font-size:14px;
+	font-weight:600;
+	text-transform:uppercase;
+	background:#cdcdcd;
+	cursor:pointer;
+}
+.cat-toggle img, .exp-toggle img {
+	vertical-align:middle;
+}
+
+a.control {
+	float:left;
+	margin-top:.5em;
+}
+
+#page-content ul.catmenu, #page-content ul.expmenu {
+	display:none;
+	list-style:none;
+	background:#cdcdcd;
+	padding-left:0;
+	overflow-x:hidden;
+}
+#page-content ul.catmenu li, #page-content ul.expmenu li {
+	background:none;
+}
+.expmenu li {
+	padding:.3em 0;
+}
+#page-content ul.catmenu li.selected, #page-content ul.catmenu li:hover, #page-content ul.expmenu li.selected, #page-content ul.expmenu li:hover {
+	background:#777;
+}
+#page-content ul.catmenu li.selected a, #page-content ul.catmenu li:hover a, #page-content ul.expmenu li.selected a, #page-content ul.expmenu li:hover a {
+	color:#fff;
+}
+#page-content ul.catmenu.toggled-on, #page-content ul.expmenu.toggled-on {
+	display:block;
+	position:relative;
+	z-index:15;
+	overflow-y:hidden;
+}
+.catmenu .indicator {
+	margin:6px 6px 0 6px;
+}
+.catmenu a, .expmenu a {
+	padding-left:6px;
+	color:#000;
+	display:block;
+	width:100%;
+	height:100%;
+	font-family:"Arial", sans-serif;
+	font-size:14px;
+}
+.expmenu li img {
+	max-width:15px;
+}
+.indicator {
+	display:block;
+	height:9px;
+	width:9px;
+	float:left;
+	margin:4px 6px 1px 1px;
+}
+
+/* export page */
+#frmExport fieldset {
+	border:1px solid #ddd;
+	border-radius: 10px;
+	padding:1em;
+	float:none;
+	height:90px;
+	white-space:nowrap;
+	width:90%;
+	margin:0 auto;
+}
+#frmExport legend {
+	font-size: 1.24em;
+	padding:0 .3em;
+}
+#frmExport select {
+	font-size:1em;
+	margin-right:.5em;
+}
+#frmExport label {
+	vertical-align:middle;
+	margin-right:1em;
+	font-weight:600;
+}
+#controlbar h2 span.indicator {
+	display:inline-block;
+	float:none;
+	vertical-align:middle;
+	margin:0 6px 3px 0;
+}
+#exportTable {
+	margin-left:1em;
+	float:left;
+}
+#exportTable td {
+	padding:.2em;
+	min-width:4em;
+}
+#exportTable .timecell {
+	padding-left:1em;
+}
+
+/* standard */
+body {
+	font-family: "Arial", sans-serif;
+}
+#page-content {
+	padding:0;
+}
+#page-content h1 {
+	font-family:"Arial", sans-serif;
+	font-weight:600;
+	font-size:1.6em;
+}
+#crust.longbread {
+	width:100%;
+}
+#crust h1 {
+	font-size:100%;
+}
+#right-content {
+	max-width:100%;
+	width:100%;
+}
+.mobile-clear {
+	height:1em;
+	clear:both;
+}
+.mobile-mini-clear {
+	height:.5em;
+	clear:both;
+}
+.mini-clear {
+	height:.2em;
+	clear:both;
+}
+.event {
+	width:98%;
+	font-family:"Arial", sans-serif;
+	font-size:11px;
+	overflow:hidden;
+	white-space:nowrap;
+	text-overflow:ellipsis;
+	cursor:pointer;
+}
+/* tooltips */
+.event span.pop { 
+	display:none;
+	font-family:"Arial", sans-serif;
+	position:absolute;
+	top:-10.5em;
+	padding:1em;
+	background:#fff;
+	color:#000;
+	border:2px solid #555;
+	width:250px;
+	height:11em;
+	z-index:20;
+	left:0;
+	box-shadow: 2px 2px 2px 2px rgba(0,0,0,.4);
+}
+
+.event span.pop.popSwitch {
+	left:-199% !important;
+}
+.event span.poptitle {
+	display:block;
+	padding-bottom:.5em;
+	width:100%;
+	border-bottom:2px solid #000;
+}
+.event span.poptitle h2 {
+	display:block;
+	font-family:"Arial", sans-serif;
+	font-weight:600;
+	margin-bottom:.2em;
+}
+.event span.popbody {
+	white-space:normal;
+	overflow:hidden;
+	height:60%;
+	display:block;
+}
+.event span.popbody p {
+	overflow:hidden;
+	font-family:"Arial", sans-serif;
+	font-weight:300;
+	white-space:pre-wrap;
+}
+
+/**/
+div.entry-events {
+    margin:1em 0 2em 0;
+    padding:0px;
+    font-size:16px;
+}
+
+.entry-events .eventTitle, .entry-events .eventTitle:visited {
+    color:#e47f27;
+    font-size:17px;
+    font-weight:600;
+    margin:0px 0px 0px -3px;
+    padding:0px 0px 5px 0px;
+    cursor:pointer;
+    border:none;
+    background-color:transparent;  
+}
+
+.entry-events .eventTitle:hover, .entry-events .eventTitle:active {
+    color:#635d53;
+}
+
+.entry-events p {
+    margin:0px;
+    font-size:16px;
+    color:#635d53;
+    line-height:20px;
+}
+
+#events-body {
+	padding:0;
+	width:100%;
+	margin:0 auto;
+}
+
+#events-body .eventcontent h2 {
+    text-transform:none;
+    text-decoration:underline;
+}
+
+input.postTitle {
+	border:none;
+	background:none;
+	font-family:"Open Sans", sans-serif;
+	color:#85a2a3;
+	font-weight:bold;
+	text-transform: none;
+	font-size:1.1em;
+	cursor:pointer;
+	padding:0;
+}
+input.postTitle:hover {
+	color:#e59154;
+}
+
+h2#desc-header {
+	font-size:18px;
+	font-weight:600;
+}
+
+div.pagination {
+    margin-top:15px;
+}
+
+div.pagination input.pagButton.dots, div.pagination input.pagButton.dots:hover, div.pagination input.pagButton.dots:active, div.pagination input.pagButton.dots.disabled {
+    border:none; 
+    margin:0;
+    padding:0;
+}
+
+div.pagination input.pagButton, div.pagination a {
+	padding: 2px 5px 2px 5px;
+	margin: 2px;
+	border: 1px solid #666;
+	font-weight:bold;
+	text-decoration: none; /* no underline */
+	color: #666;
+	height:24px;
+    float:left;
+}
+
+div.pagination a:hover, div.pagination a:active, div.pagination input.pagButton:hover, div.pagination input.pagButton:active {
+	border: 1px solid #000;
+    cursor:pointer;
+	color: #000;
+}
+
+div.pagination span.current, div.pagination  input.pagButton.current {
+	padding: 2px 5px 2px 5px;
+	margin: 2px;
+	border: 1px solid #666;
+	font-weight: bold;
+	background-color: #666;
+	color: #FFF;
+    cursor:default;
+}
+
+div.pagination span.disabled, div.pagination input.pagButton.disabled {
+	padding: 2px 5px 2px 5px;
+	margin: 2px;
+	border: 1px solid #bbb;
+	color: #bbb;
+    cursor:default;
+}
+
+/** media queries **/
+@media all and (max-width:299px) {
+	.calendar-day {
+		width:100%;
+	}
+}
+@media all and (min-width:300px) and (max-width:349px) {
+	.calendar-day {
+		width:50%;
+	}
+}
+@media all and (min-width:350px) and (max-width:435px) {
+	.calendar-day {
+		width:33.3333%;
+	}
+}
+@media all and (min-width:435px) and (max-width:499px) {
+	.calendar-day {
+		width:25%;
+	}
+}
+
+@media all and (min-width:500px) and (max-width:707px) {
+	.calendar-day {
+		width:25%;
+	}
+}
+
+@media all and (min-width:708px) and (max-width:764px) {
+	.calendar-day {
+		width:20%;
+	}
+}
+
+@media all and (min-width: 765px) and (max-width: 794px) {
+	.calendar-day {
+		width:16.6666%;
+	}
+}
+
+@media all and (max-width:430px) {
+	#frmExport label, #frmExport select, #exportTable {
+		font-size: .7em;
+	}
+}
+
+@media all and (min-width:430px) {
+
+	#crust h1 {
+		font-size:1.5em;
+	}
+}
+
+@media all and (min-width:525px) {
+	#frmExport fieldset {
+		width:auto;
+		float:left;
+		margin:0 20px 0 0;
+	}
+}
+
+@media all and (min-width:720px) {
+	#setview {
+		display:block;
+	}
+}
+
+@media all and (min-width:868px) {
+	.mobile-clear, .mobile-mini-clear, #print-btn .print-text { display:none; }
+	.calendar {
+		left:0;
+	}
+	#cat-container, #exp-container {
+		display:block;
+		float:left;
+		margin-left:1.5em;
+		width:14em;
+	}
+	#controlbar {
+		max-width:98%;
+		padding:.5em .5em 0 .5em;
+	}
+	#calcontrols {
+		float:left;
+		margin:0;
+	}
+	#print-btn {
+		background:url('../images/print.png') no-repeat #000;
+		background-size:100% 100%;
+		border:none;
+		width:27px;
+		height:27px;
+		float:right;
+		opacity:1.0;
+		cursor:pointer;
+		margin-right:.5em;
+		display:block;
+	}
+}
+
+@media all and (min-width:795px) and (max-width: 915px) {
+	.calendar-day {
+		width:16.6666%;
+	}
+}
+@media all and (min-width: 916px) {
+	.calendar-day {
+		width:14.2857%;
+	}
+	.non-day { display:block; }
+}

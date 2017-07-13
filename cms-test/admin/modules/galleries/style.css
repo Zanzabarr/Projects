@@ -1,0 +1,73 @@
+#gallery-toggle-wrap {display:none;}
+
+#gallerynavbtn {margin-left:20px;}
+#gallerynavbtn a {width:100px;font-size:12px;}
+#gallerynav .tabSel {color:black;}
+
+#info_container.galleryTable{padding:0 0 20px 0;} 
+.menu_row  a, .gallery_row a{text-decoration:none}
+.menu_row span {float:left; padding:10px 10px 0px 20px }
+
+
+
+div.title_line span  {font-size:10px; float: left; padding:0 10px 0px 20px ;margin-top:10px; }
+.title_line span.comment_name {width : 150px;padding-top: 15px;}
+.title_line span.comment_date {width : 200px;padding-top: 15px;text-align:center;}
+.title_line span.comment_status {width: 70px;font-size:16px;text-align:center;}
+.title_line span.comment_btn_grp {}
+
+
+div.gallery_row  span{float:left;padding:0 10px 0px 20px ;}
+span.row_title {width: 200px;}
+span.row_page {width: 200px;text-align:center}
+span.row_status {width:70px;text-align:center}
+span.op_group {width: 110px;text-align:center}
+
+#upload_iframe 	{display:none;}
+
+
+#image_corral, #image_pen { list-style-type: none; margin: 0; padding: 0; float: left;  background: #eee; width: 100%; min-height:110px;}
+#image_corral li, #image_pen li {  float: left;}
+
+.option_navs {position:absolute;left:-3px;display:none;width:25px;}
+.option_navs span{width:100%:height:24px;}
+.image_wrap {
+	position:relative;
+	height:79px; 
+	width:80px; 
+	margin:5px; 
+	padding:10px; 	
+	background: #FFF; 
+	border-top: 1px solid #ddd;
+	border-left: 1px solid #ddd; 
+	border-right: 1px solid #999;
+	border-bottom: 1px solid #999;
+	-moz-border-radius: 8px; 
+	border-radius: 8px;
+}
+
+.scroll {
+	width: 580px;
+	max-height: 110px;
+	margin: 0 20px 0 0;
+	overflow: auto;
+	border-top: 1px solid #ddd;
+	border-left: 1px solid #ddd; 
+	border-right: 1px solid #999;
+	border-bottom: 1px solid #999;
+	-moz-border-radius: 8px; 
+	border-radius: 8px;
+}
+#pen_group {max-height: 330px;}
+
+#edit_image .input_inner {width:auto;}
+
+div.windowHeading
+{    
+	font-size: 15px;
+    font-weight: 300;
+    letter-spacing: 1.5px;
+    margin: 20px 30px -4px 0;
+    text-align: right;
+    text-transform: uppercase;
+}

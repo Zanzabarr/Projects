@@ -1,0 +1,145 @@
+/* CSS Document */
+#members-body {
+}
+
+#members-body .membercontent {
+    margin:0px 0px 0px 0px;
+    padding:0px;
+}
+
+#members-body .membercontent h2 {
+    text-transform:none;
+    text-decoration:underline;
+}
+
+input#submitSearch {
+    cursor:pointer;
+}
+
+#member-image {
+    float:left;
+    width:250px;
+    margin:0px 20px 15px 0px;
+}
+
+h2#bio-header {
+	font-size:24px;	
+}
+
+a.memberTitle {
+	width: 50%;
+	display:inline-block;
+	float:left;
+}
+
+a.memberTitle:hover {
+
+}
+
+.members_return {
+	margin-bottom:1em;
+	border-bottom: 1px solid #000000;
+	display: inline-block;
+	padding: 3px 5px;
+	text-align: right;
+	width: 100%;'
+}
+div#membersList:after {
+	content: "";
+	display: table;
+	clear: both;
+}
+
+div.pagination {
+    margin-top:15px;
+}
+
+div.pagination input.pagButton.dots, div.pagination input.pagButton.dots:hover, div.pagination input.pagButton.dots:active, div.pagination input.pagButton.dots.disabled {
+    border:none; 
+    margin:0;
+    padding:0;
+}
+
+div.pagination input.pagButton, div.pagination a {
+	padding: 2px 5px 2px 5px;
+	margin: 2px;
+	border: 1px solid #666;
+	font-weight:bold;
+	text-decoration: none; /* no underline */
+	color: #666;
+	height:24px;
+    float:left;
+}
+
+div.pagination a:hover, div.pagination a:active, div.pagination input.pagButton:hover, div.pagination input.pagButton:active {
+	border: 1px solid #000;
+    cursor:pointer;
+	color: #000;
+}
+
+div.pagination span.current, div.pagination  input.pagButton.current {
+	padding: 2px 5px 2px 5px;
+	margin: 2px;
+	border: 2px solid #666;
+	font-weight: bold;
+	background-color: #666;
+	color: #FFF;
+    cursor:default;
+	float:left;
+}
+
+div.pagination span.disabled, div.pagination input.pagButton.disabled {
+	padding: 2px 5px 2px 5px;
+	margin: 2px;
+	border: 1px solid #bbb;
+	color: #bbb;
+    cursor:default;
+	float:left;
+}
+
+#search {
+    font-size:19px;
+}
+
+form.styled {
+    width: 100%;
+}
+form.styled > div {
+    position: relative;
+    width: 100%;
+}
+form.styled label {
+    display: inline-block;
+    margin: 0 3% 1em 0;
+    text-align: right;
+    width: 48%;
+}
+form.styled input, form.styled textarea {
+    margin: 0 0 1em;
+    max-width: 18em;
+    width: 44%;
+}
+form.styled input[type="submit"] {
+    display: block;
+    margin: 1em auto;
+}
+form.styled input[type="checkbox"] {
+    width: auto;
+}
+form.styled span.follow {
+    display: inline-block;
+    line-height: 1em;
+    margin: 0;
+    max-width: 20.2em;
+    padding: 0 0 0 1%;
+    vertical-align: middle;
+    width: 42%;
+}
+form.styled span {
+    display: block;
+    font-size: 0.7em;
+    margin-left: 52%;
+}
+form.styled span.error {
+    color: #FF0000;
+}

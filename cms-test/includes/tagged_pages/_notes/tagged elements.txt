@@ -1,0 +1,23 @@
+########################
+TAGS
+########################
+
+Tagged_pages and tagged_modules allow php inclusion of scripts from within the cms 
+An included file can be placed in /includes/tagged_pages when it is a site specific or custom tag
+	(these paths are built dynamically)
+Or in a module's /admin/modules/MODULE_NAME/frontend/includes folder
+    Modules must set a config variable in the modules /system/config.php like:
+	ie $_config['tagged_modules']['gallery'] = $_config['admin_modules'] . "galleries/frontend/tagged_modules/gallery.php";	
+
+#########################	
+USAGE
+#########################
+A tagged element is placed in a tinyMCE editor like this:
+{{example/3/4}} 
+
+example: is the name of a file (less it's extension) in /includes/tagged_pages or a file at the location defined in a module's system/config.php
+This file receives the array
+$arSpecial
+the above parameters (/3/4) are expressed within the file as
+$arSpecial[0]='3'
+          [1]='4'

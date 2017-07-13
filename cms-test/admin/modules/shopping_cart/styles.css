@@ -1,0 +1,348 @@
+/* classes */
+.clear {
+	clear:both;
+	height:1em;
+}
+.left { float:left; }
+.right { float:right; }
+
+.infop, #prop-toggle-wrap p.infop {
+	xbackground:#FFF5CF;
+	display:block;
+	font-size:1em;
+	width:80%;
+	margin:0 auto;
+	padding:10px;
+	border:1px solid;
+	border-color:#262626;
+	border-radius:10px;
+}
+.info-icon {
+	margin-right:1.3em;
+}
+#tblOrderPage tr.nobg {
+	background:none !important;
+}
+.filterLabel, .datesearchLabel {
+	background:#eee;
+	padding:5px;
+	border-radius:6px;
+	border:1px solid #eee;
+	xcursor:pointer;
+}
+.filterLabel:hover, .datesearchLabel:hover {
+	xborder:1px inset #555;
+}
+.filterContainer, .datesearchContainer {
+	display:inline-block;
+}
+.datesearch {
+	width:37%;
+	display:inline-block;
+}
+
+.filter {
+	margin:0 5px;
+	background:#eee;
+	cursor:pointer;
+}
+.filter:hover {
+	background:#F3C662;
+}
+.filtered {
+	background:#C5DCAD;
+}
+a.orderlink {
+	display:inline-block;
+}
+#start_date, #end_date {
+	margin-left:1em;
+	display:inline-block;
+}
+/* Orders */
+#tblOrderPage tr:nth-child(2n+1) {
+	background:#fff;
+}
+#tblOrderPage tr:nth-of-type(even) {
+	background:#eee;
+}
+.changeShipped img {
+	position:relative;
+	top:3px;
+}
+/* Submenu */
+#cartnav ul{
+	font-family:Arial, Helvetica, sans-serif;
+	padding:0;
+	border-bottom:1px solid #ccc;
+}
+#cartnav ul li{
+	display:inline;
+	padding:10px;
+}
+#cartnav ul li a{
+	text-decoration:none;
+	color:#666;
+}
+#cartnav ul li.active a{
+	text-decoration:none;
+	color:#000;
+	font-weight:bold;
+}
+
+#navbtn a {
+	width:100px;
+	font-size:12px; 
+	margin-top:0;
+	margin-bottom:10px
+}
+
+/* Products Main Page */
+#selectsContainer {
+	border-top:1px solid #ccc;
+	clear:both;
+}
+#selectsContainer .viewSelect {
+	float:left;
+	width:48%;
+}
+
+#selectsContainer .input_inner {
+	width:70%;
+	margin-left:1em;
+}
+
+/* Product Page */
+#short_desc {
+	height:250px;
+}
+#collection_table {
+	width: 475px;
+	list-style:none;
+	padding:0;
+	margin-top:0;
+}
+#collection_table tr {
+	background:none;
+}
+#collection_table td{
+	overflow:hidden;
+	padding: 0px;
+	text-align: left;
+	width: 225px;
+}
+#collection_table td span{
+	text-transform: capitalize;
+}
+
+/* Collections page */
+#collectionTable .menu_row  a, .title_line a {
+	text-decoration:none
+}
+#collectionTable .menu_row span {
+	float:left; padding:10px 0 0;
+}
+#collectionTable {
+	margin-top: 5px;
+}
+#collectionTable .title {
+	width:285px;
+	overflow:hidden; 
+	text-align:left;
+	margin-left:10px;
+}
+#collectionTable .prodCount {
+	width:60px;
+	text-align:center;
+	margin-left:25px;
+	margin-right:98px;
+}
+#collectionTable .status {
+	width: 70px;
+	text-align:center
+}
+#collectionTable .op_group {
+	width: 110px;
+	text-align:right
+}
+
+/* Category page */
+#categoryTable .menu_row  a, .title_line a{
+	text-decoration:none;
+}
+#categoryTable .menu_row span {
+	float:left; 
+	padding:10px 0 0 
+}
+#categoryTable {
+	margin-top: 5px;
+}
+#categoryTable .title {	
+	width:285px;
+	overflow:hidden; 
+	text-align:left;
+	margin-left:10px;
+}
+#categoryTable .prodCount {
+	width:60px;
+	text-align:center;
+	margin-left:25px;
+	margin-right:98px;
+}
+#categoryTable .status {
+	width: 70px;	
+	text-align:center;
+}
+#categoryTable .op_group {
+	width: 110px;
+	text-align:right;
+}
+#cat_wrap.input_inner {
+	margin-bottom:15px;
+}
+
+/* Preferences pages */
+#prefs-toggle-wrap .input_inner, #gateway-options .input_inner {
+	width:60%;
+}
+#gateway-toggle-wrap iframe {
+	width:100%;
+	border:none;
+}
+#paypal-frame {
+	height:26em;
+}
+#moneris-frame {
+	height:28em;
+}
+
+#fedex_prefs .input_inner {
+	width:70%;
+}
+fieldset {
+	border-radius:10px;
+}
+fieldset#fedex_accts {
+	border:none;
+	border-top:1px solid #bbb;
+}
+#fedex_prefs #fedex_accts .input_inner {
+	width:60%;
+}
+
+/* edit_h_truck/ edit_l_truck/ edit_equip/ edit_trailer)*/
+#productTable {
+	margin-top: 5px;
+}
+#productTable .menu_row  a, .title_line a{
+	text-decoration:none;
+}
+#productTable .menu_row span {
+	float:left; 
+	padding:10px 0 0; 
+	width: 170px;
+	text-align: left;
+	margin-left: 15px;
+	min-height:20px;
+}
+#productTable .menu_row span.title {
+	margin-right:5px;
+}
+
+#productTable .menu_row span.op_group {
+	text-align:right;
+	margin-left:5px;
+}
+#aux_table, #repairs_table, #work_application_table {
+	font-size: .7em;
+}
+
+#quan1 .quantity{
+	width:30px;
+}
+#quan2 .quantity{
+	width:30px;
+}
+#quan3 .quantity{
+	width:30px;
+}
+.form a {
+    color: #3E8ED4;
+    font-weight: bold;
+    text-decoration: none;
+}	
+
+.form p {
+    display: inline-block;
+    font-size: 10px;
+    margin: 0;
+    padding: 0;
+}
+.smallinput{
+	width:40px!important;
+}
+.medinput{
+	width:80px!important;
+}
+
+.page_container { width:65%; }
+#options img { vertical-align: middle;}
+.deleteoptionset { margin-right:87px; margin-left:15px;}
+.addop {margin: 30px 0 20px 0;}
+.price_buttons {margin-left:165px;}
+
+#shipping, #fedex_prefs {margin-left:1em;}
+
+/* Datepicker */
+
+td.ui-datepicker-current-day a.ui-state-default.ui-state-active {
+    color:#e47f27;
+}
+#prop-toggle-wrap select {
+	width:320px;
+}
+#prop-toggle-wrap input[type=text] {
+	width:310px;
+}
+
+.ui-widget-header {background:none;}
+
+.ui-datepicker { width: 17em; padding: .2em .2em 0; display: none; font-size:12px;}
+.ui-datepicker .ui-datepicker-header { position:relative; padding:.2em 0; background-color:#0099FF;}
+.ui-datepicker .ui-datepicker-prev, .ui-datepicker .ui-datepicker-next { position:absolute; top: 2px; width: 1.8em; height: 1.8em; }
+.ui-datepicker .ui-datepicker-prev-hover, .ui-datepicker .ui-datepicker-next-hover { top: 1px; }
+.ui-datepicker .ui-datepicker-prev { left:2px; }
+.ui-datepicker .ui-datepicker-next { right:2px; }
+.ui-datepicker .ui-datepicker-prev-hover { left:1px; }
+.ui-datepicker .ui-datepicker-next-hover { right:1px; }
+.ui-datepicker .ui-datepicker-prev span, .ui-datepicker .ui-datepicker-next span { display: block; position: absolute; left: 50%; margin-left: -8px; top: 50%; margin-top: -8px;  }
+.ui-datepicker .ui-datepicker-title { margin: 0 2.3em; line-height: 1.8em; text-align: center; }
+.ui-datepicker .ui-datepicker-title select { font-size:1em; margin:1px 0; }
+.ui-datepicker select.ui-datepicker-month-year {width: 100%;}
+.ui-datepicker select.ui-datepicker-month, 
+.ui-datepicker select.ui-datepicker-year { width: 46%;}
+.ui-datepicker select.ui-datepicker-month {margin-right:4px; }
+.ui-datepicker table {width: 100%; font-size: .9em; border-collapse: collapse; margin:0 0 .4em; }
+.ui-datepicker th { padding: .7em .3em; text-align: center; font-weight: bold; border: 0;  }
+.ui-datepicker td { border: 0; padding: 1px; }
+.ui-datepicker td span, .ui-datepicker td a { display: block; padding: .2em; text-align: right; text-decoration: none; }
+.ui-datepicker .ui-datepicker-buttonpane { background-image: none; margin: .7em 0 0 0; padding:0 .2em; border-left: 0; border-right: 0; border-bottom: 0; }
+.ui-datepicker .ui-datepicker-buttonpane button { float: right; margin: .5em .2em .4em; cursor: pointer; padding: .2em .6em .3em .6em; width:auto; overflow:visible; }
+.ui-datepicker .ui-datepicker-buttonpane button.ui-datepicker-current { float:left; }
+
+/* IE6 IFRAME FIX */
+.ui-datepicker-cover {
+    display: none; /*sorry for IE5*/
+    display/**/: block; /*sorry for IE5*/
+    position: absolute; /*must have*/
+    z-index: -1; /*must have*/
+    filter: mask(); /*must have*/
+    top: -4px; /*must have*/
+    left: -4px; /*must have*/
+    width: 200px; /*must have*/
+    height: 200px; /*must have*/
+}
+
+.large textarea#seo_description, textarea#seo_keywords {
+	height:80px;
+}

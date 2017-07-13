@@ -1,0 +1,115 @@
+# disable directory browsing
+Options All -Indexes
+
+# start rewrites
+RewriteEngine on
+
+# set the base for this site. Comment out if index.php is in the web root
+# RewriteBase 
+
+# Redirects go here
+# Example 301 redirect
+# RewriteRule ^Test-page_1.html$ http://www.example.com/test [L,R=301]
+# Live example on drafts: must be removed for real sites
+RewriteRule ^Test-page_1.html$ http://www.test.com/cms-test/whats-included [L,R=301]
+
+# Always keep this redirect for /home pages to forward to site root:
+# SEARCHSTRING=^home/?$ WHERE ^=start, ?=zero or one of previous - in this case a slash, $=end
+# GOTO=/ WHERE /=root of site or first slash after domain name - http://example.com first slash is http://example.com/ which is loading the index page.
+# RULES=[NC,L,R=301] WHERE NC=Case insensitive so /Home /home /HOME and /hOMe all are the same, L=Last Rule or dont add more rules to this, R=301=301 Permanent Redirect for SEO
+# More can be learned from http://www.smashingmagazine.com/2011/11/02/introduction-to-url-rewriting/
+RewriteRule ^home/?$ / [NC,L,R=301]
+
+# admin and admin/ go to admin/
+RewriteRule ^admin(/)?$ admin/ [QSA,L]
+
+# make sure frontend member files requests aren't rerouted through index
+RewriteRule ^includes/members/(.*)$ includes/members/$1 [L]
+
+# make sure all kinds of 'home' links go to home
+RewriteRule ^home(/)?$ index.php?page=home [QSA,L]
+RewriteRule ^(/)?$ index.php?page=home [QSA,L]
+RewriteRule ^index.php$ index.php?page=home [QSA,L]
+
+# any path with a directory starting with the word '_notes' in it is unavailable for direct browsing
+RewriteRule .*(^|/)_notes.* index.php?page=404 [QSA,L]
+
+# any path with a directory starting with the word 'classes' in it is unavailable for direct browsing
+RewriteRule .*(^|/)classes.* index.php?page=404 [QSA,L]
+
+# any path with a directory starting with the word 'includes' in it is unavailable for direct browsing
+RewriteRule .*(^|/)includes.* index.php?page=404 [QSA,L]
+
+# any path with a directory starting with the word 'system' in it is unavailable for direct browsing
+RewriteRule .*(^|/)system.* index.php?page=404 [QSA,L]
+
+# if it isn't a file, and isn't a directory, reroute through index as normal page
+#   admin level items are called by their filename so don't get rerouted
+RewriteCond %{SCRIPT_FILENAME} !-f
+RewriteCond %{SCRIPT_FILENAME} !-d
+RewriteRule ^(.*)$ index.php?page=$1 [QSA,L]
+
+# if get file with ?force_downloads, set the force_download environment variable
+RewriteCond %{QUERY_STRING} force_download$
+RewriteRule ^(.*)$ - [ENV=force_download]
+
+#if force_download is set: set download headers
+Header set Content-Disposition attachment ENV=force_download
+Header set Content-Type application/octet-stream ENV=force_download
+
+
+# MARK SPAM DOMAINS/IP AS SPAMBOT
+SetEnvIfNoCase Referer 7makemoneyonline.com spambot=yes
+SetEnvIfNoCase Referer acunetix-referrer.com spambot=yes
+SetEnvIfNoCase Referer adcash.com spambot=yes
+SetEnvIfNoCase Referer baixar-musicas-gratis.com spambot=yes
+SetEnvIfNoCase Referer blackhatworth.com spambot=yes
+SetEnvIfNoCase Referer buttons-for-website.com spambot=yes
+SetEnvIfNoCase Referer cenokos.ru spambot=yes
+SetEnvIfNoCase Referer cenoval.ru spambot=yes
+SetEnvIfNoCase Referer cityadspix.com spambot=yes
+SetEnvIfNoCase Referer darodar.com spambot=yes
+SetEnvIfNoCase Referer descargar-musicas-gratis.com spambot=yes
+SetEnvIfNoCase Referer econom.co spambot=yes
+SetEnvIfNoCase Referer edakgfvwql.ru spambot=yes
+SetEnvIfNoCase Referer fbdownloader.com spambot=yes
+SetEnvIfNoCase Referer gobongo.info spambot=yes
+SetEnvIfNoCase Referer iedit.ilovevitaly.com spambot=yes
+SetEnvIfNoCase Referer ilovevitaly.com spambot=yes
+SetEnvIfNoCase Referer ilovevitaly.co spambot=yes
+SetEnvIfNoCase Referer ilovevitaly.info spambot=yes
+SetEnvIfNoCase Referer ilovevitaly.org spambot=yes
+SetEnvIfNoCase Referer ilovevitaly.ru spambot=yes
+SetEnvIfNoCase Referer iskalko.ru spambot=yes
+SetEnvIfNoCase Referer luxup.ru spambot=yes
+SetEnvIfNoCase Referer make-money-online.7makemoneyonline.com spambot=yes
+SetEnvIfNoCase Referer maps.ilovevitaly.com spambot=yes
+SetEnvIfNoCase Referer myftpupload.com spambot=yes
+SetEnvIfNoCase Referer o-o-6-o-o.ru spambot=yes
+SetEnvIfNoCase Referer o-o-8-o-o.ru spambot=yes
+SetEnvIfNoCase Referer priceg.com spambot=yes
+SetEnvIfNoCase Referer responsinator.com spambot=yes
+SetEnvIfNoCase Referer годом.рф spambot=yes
+SetEnvIfNoCase Referer savetubevideo.com spambot=yes
+SetEnvIfNoCase Referer screentoolkit.com spambot=yes
+SetEnvIfNoCase Referer semalt.com spambot=yes
+SetEnvIfNoCase Referer seoexperimenty.ru spambot=yes
+SetEnvIfNoCase Referer shopping.ilovevitaly.ru spambot=yes
+SetEnvIfNoCase Referer slftsdybbg.ru spambot=yes
+SetEnvIfNoCase Referer socialseet.ru spambot=yes
+SetEnvIfNoCase Referer srecorder.com spambot=yes
+SetEnvIfNoCase Referer st3.cwl.yahoo.com spambot=yes
+SetEnvIfNoCase Referer superiends.org spambot=yes
+SetEnvIfNoCase Referer vodkoved.ru spambot=yes
+SetEnvIfNoCase Referer websocial.me spambot=yes
+SetEnvIfNoCase Referer ykecwqlixx.ru spambot=yes
+SetEnvIfNoCase Referer yougetsignal.com spambot=yes
+
+SetEnvIfNoCase REMOTE_ADDR "217\.23\.7\.130" spambot=yes
+SetEnvIfNoCase REMOTE_ADDR "78\.110\.60\.230" spambot=yes
+SetEnvIfNoCase REMOTE_ADDR "193\.227\.240\.37" spambot=yes
+SetEnvIfNoCase REMOTE_ADDR "193\.227\.240\.38" spambot=yes
+
+Order allow,deny
+Allow from all
+Deny from env=spambot

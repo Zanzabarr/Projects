@@ -1,0 +1,301 @@
+#new_members_banner .msg-wrap .close-message {
+	left:756px;
+}	
+
+.message_wrap {
+	padding-right:135px;		
+}
+
+#membersnavbtn {margin-left:20px;}
+#membersnavbtn a {width:120px;font-size:12px;}
+#membersnav .tabSel {color:black;}
+
+#info_container.membersTable{padding:0px 0px 20px 0px;} 
+a {text-decoration:none}
+.menu_row span {float:left; padding:19px 10px 0px 15px }
+
+.membersWrap{
+	margin: 0 0 0 0px;
+	display: block; 
+}
+.members_grp {
+
+	overflow:auto;
+	max-height: 450px; 
+}
+	
+.members_grp tr {background-color:white;}
+.members_grp td {padding:0;}
+
+div.title_line span  {font-size:10px; float: left; padding:0 10px 0px 20px ;margin-top:10px; }
+
+span.username {width: 25em;}
+span.row_status {
+    padding: 19px 0 0;
+    text-align: center;
+    width: 55px;
+	cursor: pointer;
+}
+span.op_group {width: 90px;text-align:center;padding-top:15px;float:right}
+.folder_row:after, .new_folder_row:after	{
+	content:'.';
+	display:block;
+	clear:both;
+	height: 0;
+	visibility: hidden;
+}
+
+.folderWrap {
+	display: block; 
+}
+.folder_row .submitName {
+	display:none;
+}
+.folder_grp {
+	margin: 0 0 0 0px;
+	overflow:auto;
+	max-height: 450px; 
+}
+.ftp_mod {width:150px;font-size:0.9em;line-height:1.6em;}
+.ftp_status {width:150px;text-align:center;cursor:pointer;}
+.folder_grp span{
+	padding: 15px 0 0;
+	display: inline-block;
+}
+.folder_grp span.folder {width: 240px;vertical-align:top;}
+
+.folder_row input, .new_folder_row input{
+	width: 220px;
+	color: black;
+	font-size:16px;
+	font-family: Arial,Helvetica,sans-serif; 
+	padding:2px;
+	text-overflow: ellipsis;
+}
+.folder_row input.notInput, .new_folder_row input.notInput {
+	background:none;
+	border: 0px solid;
+	cursor: default;
+}
+
+.titlebar {
+	border-bottom: 1px solid #AAAAAA;
+	border-top: 1px solid #AAAAAA;
+    font-family: Arial,Helvetica,sans-serif;
+    font-size: 13px;
+    padding: 10px;
+    text-transform: uppercase;
+	background: #eee;
+}
+
+.checkWrap {
+	float:left;
+	width:200px;
+}
+
+#membersnav ul li {
+	display:inline;
+	padding:5px;
+}
+
+#membersnav ul li a {
+	text-decoration:none;
+	color:#666;
+}
+#membersnav ul {
+	font-family:Arial, Helvetica, sans-serif;
+	margin:0 0 10px 0;
+	border-bottom:1px solid #ccc;
+	padding:0;
+}
+
+#membersnavhome {
+    padding:15px 15px 8px 15px;
+}
+
+.context a {
+	color:#333;
+	text-decoration:none;
+}
+div.maininfo p {
+	font-size:11px;
+	margin:5px 0;
+	padding:0;
+}
+	
+div.maininfo .product {
+	height:525px;
+}
+div.maininfo .category {
+	height:325px;
+}
+	
+div.maininfo {
+	width:800px;
+	margin-right:8px;
+	padding:5px 19px 20px 19px;
+	display:block;
+	float:left;
+	border:1px solid #ccc;
+}
+
+div.imageinfo {
+	width:400px;
+	height:60px;
+	padding:5px 19px 20px 19px;
+	margin-left:8px;
+	display:block;
+	float:right;
+	border:1px solid #ccc;
+}
+
+#addsubmit, #editsubmit {
+	margin:10px 0;
+	padding:5px;
+}
+
+.body_wrapper .context div.seoinfo table{
+	border:0;
+}
+
+.edit_page {
+	padding-top: 10px;
+	padding-right: 20px;
+	padding-bottom: 10px;
+	padding-left: 20px;
+	color: #000000;
+	font-family: Tahoma,Geneva,sans-serif;
+	font-size: 13px;
+}
+
+#member_new_page_container {
+    width:800px;
+}
+
+#member_new_page_container .input_inner {
+    width:605px;
+}
+
+#member_image {
+    position:relative;
+    opacity:0;
+    -moz-opacity:0 ;
+    filter:alpha(opacity: 0); 
+    z-index:2;
+    text-align:right;
+}
+
+.fakefile {
+    position:absolute;
+    top:0px;
+    left:0px;
+    z-index:1;
+}
+
+.fakefile input {
+    display:block;
+    width:278px;
+}
+
+#file-input-container {
+    position:relative;
+}
+
+#profile-image-container {
+    position:absolute;
+    top:0px;
+    right:0px;
+    width:295px;
+    padding:0px 5px 5px 5px;
+}
+
+#profile-image {
+    display:block;
+    margin:0 auto 14px auto;
+}
+
+#profile-image-container label {
+    display:block;
+    width:110px;
+    margin:0px auto 14px auto;
+}
+
+#prop-toggle-wrap {
+    position:relative;
+}
+
+#togglePwdForm {
+   padding-top:0px;
+   display:inline-block;
+}
+
+#submit-pass {
+    width:140px;
+}
+
+.deletememberimage {
+    position:absolute;
+    top:0px;
+    right:48px;
+}
+
+#togglememberimage {
+    text-align:center;
+    margin-bottom:7px;
+}
+
+#togglememberimage img {
+    position:relative;
+    padding-right:12px;
+    top:2px;
+}
+
+#togglememberimage a {
+    color: #3E8ED4; 
+    font-weight: bold;
+    display:inline-block;
+}
+
+.upDown {
+    height: 10px;
+    position: relative;
+    width: 10px;
+	display:inline-block;
+}
+.upDown input {
+
+    /* First, we make it as wide as the container */
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    /* Then, we put it on top of everything else */
+    z-index: 100;
+    /* Last, we make it invisible */
+    opacity: 0;
+	filter: alpha(opacity = 0);
+    /* This one is just for ergonomy */
+    cursor: pointer;
+	right:-4px;
+	top:-4px;
+}
+.upDown label {
+   display: block;
+   position: relative;
+   width: 0; 
+   height: 0; 
+   border-bottom: 4px solid black; 
+   border-left: 4px solid transparent; 
+   border-right: 4px solid transparent; 
+   margin:2px;
+}
+/* breaks in ie8 and lower: requires ie9.js installed */
+.upDown input:checked ~ label {
+	border-top: 4px solid black; 
+	border-bottom: 4px solid transparent; 
+}
+.upDown.inactive label {
+	border-bottom: 4px solid gray;
+}
+.upDown.inactive input:checked ~ label {
+	border-top: 4px solid gray;
+}

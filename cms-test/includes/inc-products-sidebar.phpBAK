@@ -1,0 +1,143 @@
+<?php // THIS SIDE MENU PROVIDES TOUCHSCREEN SUPPORT WITHOUT SPRY AND PROVIDES MENUS FOR GRANDCHILDREN
+//dynamic creation of a sidebar
+
+// $chain passed from index.php: contains sidebar info
+// $chain['head']										info about the heading
+// $chain['head']['slug']									slug for url
+// $chain['head']['id']     								id of page
+// $chain['head']['title']  								page title
+// $chain['descendants']								info about the children pages
+// $chain['descendants']['sorted_order'] 					position of descendant in order
+// $chain['descendants']['sorted_order'] ['slug']			slug for url
+// $chain['descendants']['sorted_order'] ['id']  		   	id of page
+// $chain['descendants']['sorted_order'] ['title']  		page title
+// $chain['selected']									info about the selected page
+// $chain['selected']['id']									selected page's id
+
+$mobileMenu = $isMobile ? ' isMobile' : ' notMobile';
+?>
+<div id="sidebar" style="margin-top:1em;">
+
+       
+<?php if($hasSidebar) 
+{ 
+?>
+<!--[if IE 7]> 
+	<ul id="sideMenu" class="MenuBarVertical ie7 navbar sidenav<?php if($isMobile)echo ' isMobile' ;?>">
+<![endif]-->
+<!--[if !IE 7]> <!-->
+	<ul id="sideMenu" class="MenuBarVertical MenuBarActive <?php echo $mobileMenu;?>">
+<!--<![endif]--> 
+<?php // get products (collections) for given category product belongs to
+		echo"<li class='menu-top'><a class='side-menu-title' href='{$chain['head']['slug']}'><h2>Products</h2></a></li>";
+		
+	$currentSlug = strtolower(implode('/',$uri));
+	$categories = logged_query_assoc_array("SELECT * FROM pages WHERE has_menu = 2 && parent_id = 0 && status > 0 ORDER BY menu_order ASC",null,0,array());
+	foreach($categories as $cat) {
+		$children = logged_query_assoc_array("SELECT * FROM pages WHERE parent_id = {$cat['id']} && status > 0 ORDER BY menu_order ASC",null,0,array());
+		
+		if(!empty($children)) {
+			$childslugs = array();
+			foreach($children as $ch) {
+				$childslugs[] = $ch['slug'];
+			}
+			$parentId = logged_query("SELECT * FROM pages WHERE id = {$cat['id']} && status > 0 LIMIT 1",0,array());
+			$parentId = $parentId[0]['parent_id'];
+			//$parentSlug = logged_query("SELECT * FROM pages WHERE id = {$parentId} && status > 0 LIMIT 1",0,array());
+			//$parentSlug = $parentSlug[0]['slug'];
+			$selectedParent = (in_array($currentSlug,$childslugs) || $currentSlug == $cat['slug']) ? 'selectedParent' : '';
+		} else {
+			$selectedParent = ($currentSlug == $cat['slug']) ? 'selectedParent' : '';
+		}
+		$arrow = $isMobile ? "<span><span class='mobileOpen'></span></span>" : "";
+		$openMenu = ($selectedParent != "" || $currentSlug == $cat['slug']) ? 'open' : '';
+		if ($cat['status'] === "1" ){
+			echo"<li class='menu-bottom'><a class='$selectedParent' href='" . $_config['site_path'].$cat['slug'] . "'>{$cat['page_title']}</a>";
+		}
+		if(!empty($children)) {
+			echo "{$arrow}<ul class='$openMenu'>";
+			foreach($children as $child) {
+
+				//$selected = $child['id'] == $item_data['id'] ? ' selected' : '';
+				echo "<li><a class='MenuBarItemSubmenu{$selected}' href='{$_config['site_path']}{$child['slug']}'> {$child['page_title']}</a></li>";
+
+			}
+			echo "</ul></li>";
+		} else {
+			echo "</li>";
+		}
+	}
+?>
+	</ul></li><!-- end products-list -->
+
+</ul> <!-- END sideMenu -->	
+
+<?php include('includes/inc-categories-menu.php'); ?>
+<div class="clear" style="height:1em;"></div>
+<script>
+$(document).ready( function() {
+	$('#sideMenu.notMobile li').hover( function() {
+		$(this).children('ul').addClass('hoveropen');
+	}, function() {
+		$(this).children('ul').removeClass('hoveropen');
+	});
+	
+	/* Mobile full-size menu (tablets) */
+	$('ul#sideMenu.isMobile span.mobileOpen').live('click', function() {
+		$(this).removeClass('mobileOpen').addClass('mobileClose');
+		var menu = $(this).parent('span').siblings('ul');
+		$('#sideMenu ul.MenuBarSubmenuVisible').each( function() {
+			$(this).removeClass('MenuBarSubmenuVisible');
+		});
+		
+		$(menu).addClass('MenuBarSubmenuVisible');
+	});
+	$('ul#sideMenu.isMobile span.mobileClose').live('click', function() {
+		$(this).removeClass('mobileClose').addClass('mobileOpen');
+		var menu = $(this).parent('span').siblings('ul');
+		$(menu).removeClass('MenuBarSubmenuVisible');
+	});
+	$('ul#sideMenu2.isMobile span.mobileOpen').live('click', function() {
+		$(this).removeClass('mobileOpen').addClass('mobileClose');
+		var menu = $(this).parent('span').siblings('ul');
+		$('#sideMenu2 ul.MenuBarSubmenuVisible').each( function() {
+			$(this).removeClass('MenuBarSubmenuVisible');
+		});
+		
+		$(menu).addClass('MenuBarSubmenuVisible');
+	});
+	$('ul#sideMenu2.isMobile span.mobileClose').live('click', function() {
+		$(this).removeClass('mobileClose').addClass('mobileOpen');
+		var menu = $(this).parent('span').siblings('ul');
+		$(menu).removeClass('MenuBarSubmenuVisible');
+	});
+	/**/
+	/* Mobile Menu */
+	$('.isMobile a.side-menu-title').on('click', function(e) {
+		e.preventDefault();
+		$(this).addClass('clicked');
+		$('li.toggled-on').removeClass('toggled-on');
+		if($(this).hasClass('toggled-on')) {
+			$(this).removeClass('toggled-on');
+			$(this).parents('li').siblings('li').removeClass('toggled-on');
+		} else {
+			$(this).addClass('toggled-on');
+			$(this).parents('li').siblings('li').addClass('toggled-on');
+		}
+		$('a.side-menu-title.toggled-on').each( function() {
+			if($(this).hasClass('clicked')) {
+				$(this).removeClass('clicked');
+			} else {
+				$(this).removeClass('toggled-on');
+			}
+		});
+	});
+
+	/**/
+});
+</script>
+<?php
+} // if sidebar
+// note </div> <!-- left_col -->	is on index page.
+?>
+

@@ -1,0 +1,337 @@
+
+#blog-body{
+	width:99%;
+	font-size:1em;
+}
+
+#setview {
+	display:none;
+	float:right;
+	padding:0 10px;;
+}
+#setview #viewlink {
+	ppfont-size:.7em;
+	color:#00A651;
+	cursor: pointer;
+}
+
+.spacer{clear:both; height:1px;}
+/* ----------- My Form ----------- */
+.blog #form-page{
+margin:0;
+margin-bottom:-1.57em;
+width:99.99%;
+}
+.blog h1 {
+font-weight:bold;
+margin-bottom:0.6em;
+color:#05A511;
+}
+
+.blog img {margin: }
+.blog label{
+display:block;
+font-weight:bold;
+text-align:right;
+width:100px;
+float:left;
+}
+.blog .small{
+color:#666666;
+display:block;
+font-size:1em;
+font-weight:normal;
+text-align:left;
+
+}
+.blog input, .blog textarea{
+display:block;
+font-size:0.875em;
+padding:4px 0 4px 0;
+width:65%;
+margin:2px 0 20px 0;
+background-color: #dddddd
+}
+.blog input#commentname {
+	clear:both;	
+}
+.blog textarea{height: 90px;width:99%;}
+
+.blog button{
+clear:both;
+margin:0;
+height:31px;
+text-align:center;
+font-size:11px;
+font-weight:bold;
+background: none repeat scroll 0 0 #DDD;
+border-color: #BBBBBB #DDDDDD #DDDDDD #BBBBBB;
+-webkit-border-radius: 5px;
+-moz-border-radius: 5px;
+border-radius: 5px;
+border-style: solid;
+border-width: 1px;
+padding: 0 6px 4px;
+}
+					
+.blog button:hover		{cursor:pointer; background:#cccccc;}
+
+.singlePost{color:#f1592a;}
+.smallDate {font-size:11px;font-weight:normal;padding-top:10px;}
+.blog span#commentMsg {width: 400px;padding-left:110px; text-align:center;margin-top:20px;}
+
+
+ input.singlePost,  input.singlePost:active,  input.singlePost:hover {
+	border:none;
+	background: none;
+	font-size:1em;
+	width: auto;
+	margin:0;
+	padding : 0;
+	text-align:left;
+	width:250px;
+    position:relative;
+    left:-3px;
+}
+
+ input.postTitle,  input.postTitle:active,  input.postTitle:hover
+{
+    position:relative;
+    left:-3px;
+	border:none;
+	float:none;
+	background: none;
+	font-size:1.238em;
+	width: auto;
+	margin:0;
+	padding : 0;
+	padding-right: 20px;
+	color:#05A511; 
+	text-align:left;
+	height:auto;
+} 
+.commentLabel {}
+input.postTitle {
+	width:100%;
+}
+input.singlePost, input.postTitle {
+	cursor:pointer;
+}
+input.singlePost:hover, input.postTitle:hover {
+	color:#555;
+}
+div#comments .commentpara {	   
+	padding: 15px;
+	background: none repeat scroll 0 0 #DDDDDD;
+    border-color: #BBBBBB #DDDDDD #DDDDDD #BBBBBB;
+    -webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+    border-style: solid;
+    border-width: 1px; 
+	overflow:auto;
+}
+.entry-events {
+	margin:2em 0;
+}
+.entry-events p, .eventcontent p {
+	margin:.5em 1em;
+}
+.eventcontent h2 {
+	margin:1em 0 0 0;
+}
+div.fixed {
+	font-weight:bold;
+	width:6em;
+	float:left;
+	margin-left:1em;
+}
+.nameBlog {float:left;width:250px;font-size:1em; font-weight: bold; }
+.dateBlog {clear:both;width:200px;font-size:0.95em;}
+.titleRow {width:500px}
+
+.backBtn input.singlePost {float:left;width:auto;padding: 0 10px 0 0;}	
+
+div.pagination {
+    margin: 3px 3px 3px -3px;
+    padding: 3px;
+}
+div.pagination input.pagButton.dots, div.pagination input.pagButton.dots:hover, div.pagination input.pagButton.dots:active, div.pagination input.pagButton.dots.disabled {
+    border: medium none;
+    margin: 0;
+    padding: 0;
+}
+div.pagination input.pagButton, div.pagination a {
+    border: 1px solid #666666;
+    color: #666666;
+    float: left;
+    font-weight: bold;
+    height: 24px;
+    margin: 2px;
+    padding: 2px 5px;
+    text-decoration: none;
+	width: auto;
+}
+
+
+/** SIDE MENU **/
+            
+#sidebar.blog {
+font-weight: normal;
+    display:block;
+    width:99%;        
+	margin:0;
+	background:none;
+	border:none;
+	box-shadow:none;
+	font-size:0.875em;
+}
+
+#sidebar.blog #category-list-container {
+	float:left;	
+	width:99.99%;
+}
+
+#sidebar.blog #recent-posts-container {
+	float:left;
+	width:99.99%;
+}
+
+#sidebar.blog h4 {
+    font-weight:normal;
+    margin:0 0 0px 0px;
+    font-size:1em;
+    text-transform:uppercase;
+}
+
+#sidebar.blog a {
+    display:block;
+    font-weight: bold;
+	line-height:3.5em;
+    color:#303030;
+    text-decoration: none;
+    text-transform: capitalize; 
+	font-size:1em;
+}
+#sidebar.blog a:hover {
+    text-decoration: none;
+    color : #fff;
+	background:url('../../../../images/side-menu-select.png') no-repeat;
+}
+
+#sidebar.blog a.subpage { 
+    padding:0 0 2px 40px;
+}
+
+#sidebar.blog a.subsubpage {
+    width:233px;
+    padding:10px 0 10px 85px;   
+}
+#sidebar.blog h2 {
+    font-weight:bold;
+    margin:0;
+    font-size:1.25em;
+    text-transform:capitalize;
+	background:url('../../../../images/side-menu-topbg.png') no-repeat;
+	font-family:"Lato", sans-serif;
+	color:#fff;
+	text-align:left;
+	padding-left:1em;
+	line-height:2.5em;
+	height:50px;
+	width:232px;
+}
+
+#sidebar.blog h4 a.active {
+    color:#707070;
+}
+
+#content.hasSidebar{
+    float:left;
+    display:inline-block;
+    width:  95%;
+}
+
+ul.blog-list {
+	position:relative;
+	font-family:"Lato", sans-serif;
+	list-style:none;
+	width:232px;
+}
+ul.blog-list li {
+	overflow:hidden;
+	white-space: no-wrap;
+}
+ul.blog-list li a {
+	line-height:3.2em;
+	font-weight:bold;
+	color:#000;
+	background:url('../../../../images/side-menu-childbg.png') no-repeat;
+	height:50px;
+}
+ul.blog-list li:first-child a {
+	background:url('../../../../images/side-menu-firstchildbg.png') no-repeat;
+}
+
+@media all and (min-width: 468px) {
+	#sidebar.blog #category-list-container {
+		float:left;	
+		width:47.5%;
+		margin-right:4.99%;
+	}
+
+	#sidebar.blog #recent-posts-container {
+		float:left;
+		width:47.5%;
+	}
+}
+
+@media all and (min-width: 655px) {
+	#blog-body{
+		width:62%;
+		float:right;
+		
+	}
+	#sidebar.blog {
+		width:35%;    
+		padding-right:2%;
+		float:left;
+	}
+	#sidebar.blog #category-list-container {
+		float:left;	
+		width:99.99%;
+	}
+
+	#sidebar.blog #recent-posts-container {
+		float:left;
+		width:99.99%;
+	}
+}
+
+@media all and (min-width: 720px) {
+	#setview {
+		display:block;
+	}
+	#blog-body {
+		width:67%;
+		padding:0 0 1em 1%;
+	}
+	
+	#sidebar.blog {
+	position:relative;
+	width:27%;
+	float:left;
+	}
+	.blog input {
+		width:40%;
+	}
+	input.postTitle {
+		width:100%;
+	}
+}
+
+
+@media all and (min-width: 960px) {
+
+	
+}

@@ -1,0 +1,116 @@
+#image-toggle-wrap {
+	display:none;
+}
+
+.uploadImageInfo, .uploadFileInfo {
+	list-style-type: none;
+	padding: 0px;
+	margin: 0px;
+}
+.imageInfo, .fileInfo				{
+	width:150px;
+	float:left;
+	padding:5px;
+	margin:2px;
+	border-top: 1px solid #ddd;
+	border-left: 1px solid #ddd; 
+	border-right: 1px solid #999;
+	border-bottom: 1px solid #999;
+	-moz-border-radius: 4px; 
+	border-radius: 4px;}
+
+.imageInfo p , .fileInfo p {
+	font-size:10px; 
+	text-align:center;
+}
+.button_group {
+	float:left;
+	width:55px;
+	margin-top:22px;
+}
+
+.thumb_wrap {
+	
+	width:90px; 
+	float:right;
+	height: 90px;
+	background: none repeat scroll 0 0 #EEEEEE;
+	border-top: 1px solid #ddd;
+	border-left: 1px solid #ddd; 
+	border-right: 1px solid #999;
+	border-bottom: 1px solid #999;
+	-moz-border-radius: 4px; 
+	border-radius: 4px;
+}
+.imageInfo .thumb_wrap img, .fileInfo .thumb_wrap img	{ 
+	display: block;
+	margin: auto;
+	margin-top: 5px;
+ }
+
+.imagePath_original, .imagePath_fullsize {
+	display:none;
+}
+
+input.imageName {
+	float:right;
+	width:140px;
+	border:1px solid white;
+	background:none;
+	text-align:center;
+	font-size:10px;
+	margin-top:2px;
+}
+
+input.imageName:focus {text-align:left;}
+
+.imageInfo a.button , .fileInfo a.button {
+	margin: 0 0 4px 0 ; 
+	width : 50px; 
+	height: 14px; 
+	font-size: 10px;
+	padding-top: 4px;
+	line-height:1em;
+}
+
+
+
+#image-progress {
+	width:24.3em;
+	overflow:hidden;
+	background: none repeat scroll 0 0 #EEEEEE;
+	border-color: #BBBBBB #DDDDDD #DDDDDD #BBBBBB;
+	border-radius: 5px;
+	border-style: solid;
+	border-width: 1px;
+	margin: 1em 0;
+	display: none;
+}
+#image-no-progress {
+	margin:1em 0;
+	font-size: .8em;
+}
+#image-progress .bar {
+	height: 18px;
+	background: green;
+	background-image: linear-gradient(bottom, #81C966 21%, #5EAB44 55%, #A1D496 99%);
+	background-image: -o-linear-gradient(bottom, #81C966 21%, #5EAB44 55%, #A1D496 99%);
+	background-image: -moz-linear-gradient(bottom, #81C966 21%, #5EAB44 55%, #A1D496 99%);
+	background-image: -webkit-linear-gradient(bottom, #81C966 21%, #5EAB44 55%, #A1D496 99%);
+	background-image: -ms-linear-gradient(bottom, #81C966 21%, #5EAB44 55%, #A1D496 99%);
+	background-image: -webkit-gradient(
+		linear,
+		left bottom,
+		left top,
+		color-stop(0.21, #81C966),
+		color-stop(0.55, #5EAB44),
+		color-stop(0.99, #A1D496)
+	);
+}
+
+.uploadInfoWrap label {
+	display:none;
+}
+.uploadInfoWrap label.hasFiles, .uploadInfoWrap label.hasImages {
+	display:block;
+}

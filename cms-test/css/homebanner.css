@@ -1,0 +1,132 @@
+/* home banner */
+#slidedeck_frame {
+    position:relative;
+    width:100%;
+    height:auto;
+    padding:0;
+    margin:0 0 0 0;
+}
+
+#slidedeck_frame:after {
+    content: '.';
+    display: block;
+    clear:both;
+    height:0;
+    visibility:hidden;
+}
+
+dl.slidedeck {
+    position:relative;
+    width: 100%;
+    xheight: 498px;
+    padding: 0;
+    margin: 0;
+}
+
+dl.slidedeck dd {
+    position: absolute;
+    top:0px;
+    left:0px;
+    z-index:5;
+    width:100%;
+    height:inherit;
+    display:none;
+    margin:0px;
+    padding:0px;
+}
+
+dl.slidedeck dd.showbanner {
+    display:block;
+}
+
+dl.slidedeck dd.active {
+    z-index:6;
+}
+
+
+/* ------------------------------------------------------- *\
+** Change mobile settings at will to "zoom" in center of banner
+\* ------------------------------------------------------- */
+.for-hidden-overflow{
+	overflow:hidden;
+}
+#rotating-banner {
+	position:relative;
+}
+@media (max-width: 549px) {
+	/*
+	#rotating-banner {
+		width: 150%; 150-percent-viewport-width:;
+	}
+	.rotating-banner-img {
+		position: relative;
+		left: -23%; approximately-center-banner:;
+	}
+	*/
+	
+	/*
+	#inside-banner {
+		width: 150%; 150-percent-viewport-width:;
+	}
+	*/
+}
+
+/* ------------------------------------------------------- *\
+** Clickable Dots showing what slide you are on. 
+** Default position in a separate layer on top of all banners. 
+** Can also be moved to any other area with kept functionality. 
+\* ------------------------------------------------------- */
+.rotating-banner-click-dots {
+	position:absolute;
+	bottom:3%;
+	left:0;
+	right:0;
+	text-align:center;
+	z-index:10;
+}
+.click-dots{ 
+    position: relative;
+	display:inline-block;
+	margin:2px;
+	cursor:pointer;
+    height: 10px; 
+    width: 10px; 
+    border-radius: 10px;
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+    border: 2px solid white;
+	vertical-align:middle;
+	font-size:0;
+	line-height:0;
+}
+.click-dots-active{ 
+    background-color: silver;
+    height: 12px; 
+    width: 12px; 
+    border-radius: 12px;
+	-webkit-border-radius: 12px;
+	-moz-border-radius: 12px;
+}
+
+/* old stuff? */
+.banner-button-box {
+    width:8.33%;
+    position:absolute;
+    bottom:5.6%;
+    cursor:pointer;
+    z-index:7;
+}
+#banner-button-box-prev {
+    left:0;
+}
+#banner-button-box-next {
+    right:0;
+}
+
+@media screen and (min-width:720px){
+    
+}
+
+@media screen and (min-width: 960px){
+}
+

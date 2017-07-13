@@ -1,0 +1,43 @@
+This component uses the gallery class in /admin/includes/classes/gallery.php
+Together, they are used by all modules that require a gallery like interface in the admin side.
+
+For frontend display of galleries and other gallery like elements, use the displayGallery class in /admin/includes/classes/displaygallery.php. 
+
+The gallery interface uses the following values to create a display gallery via {{gallery/1}} insert tags in tinymce:
+Elements:
+0) gallery: the name of the tagged page
+1) gallery id: the id of the gallery to be displayed
+
+The remaining elements come in two varieties,
+a) Gallery components
+		These are the different parts that can be displayed in a gallery and include
+			gallery - a fullsize gallery
+			squareNav - a nav bar using square images
+			stackedNav - a nav area that shows all the gallery images in a display area
+			slider - a nav area that utilizes the natural width of the thumbs instead of cropping
+			
+			
+b) Options
+   These are the different options that can be set for the gallery
+	fullsizeFolder	= 'fullsize';	// name of the folder storing fullsize images
+	displaySizeFolder='mini';		// name of the folder storing images for main display
+	thumbFolder 	= 'thumb';		// name of the folder storing thumbs for the navigator
+	sliderFolder	= 'slider';		// name of the folder storing thumbs for variable width slides
+	placeHolder		= 'admin/modules/galleries/frontend/dynamic_placeholder.php'; 
+									// location of the placeholder image
+									//   by default, uses the dynamically generated placeholder
+									//   to customize display, it can be passed to get values: width and height
+									//   if only width is passed, original aspect ratio is used (recommended)
+	cycleSpeed		= 0;			// speed in milliseconds that images cycle: if 0, doesn't cycle
+	noExplodedCaption=false;		// by default, 	exploded image has caption if included in imgArray
+	noScrollArrows	= false;		//				main display has navigation arrows
+	noExplodedImage	= false;			//				main display can be clicked to show fullsize image
+	numThumbs		= 4;			// the number of thumbs in nav bar (only applies to squareNav)
+	leftArrow		= "&larr;";		// the values to use as arrows (can replace with an image tag)
+	rightArrow		= "&rarr;";		//		in the main display area	
+	rightThumbArrow	= "&raquo;";		// the values to use as arrows (can replace with an image tag)
+	leftThumbArrow	= "&laquo;";	//		in the thumb gallery display area
+	galleryId		= "0";			// if an id is passed create an identifier class to associate nav/caption/gallery together.
+										// must be given if multiple galleries are to appear on the page
+	uniqueClass		= "GalleryID_";	// the gallery Id gets attached to this class. used to keep multiple galleries unique. 
+	insetCaption	= false;		// if true, display the caption as part of the image

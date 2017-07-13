@@ -1,0 +1,92 @@
+.login_wrapper .left {
+	float:left;
+}
+.login_wrapper .error {
+    background: none repeat scroll 0 0 #FFE1E1;
+    border: 1px solid #990000;
+    margin: auto;
+    padding: 10px;
+    text-align: center;
+    width: 90%;
+}
+.login_wrapper .logout {
+    background: none repeat scroll 0 0 #99CCFF;
+    border: 1px solid #3B80BC;
+    padding: 10px;
+
+
+}
+
+.logoutBtn {
+    margin: auto;
+    padding: 10px;
+    text-align: center;
+	float:right;
+	border: 1px solid #cccccc;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	background-color:#dbeccc;
+	margin-left:1em;
+}
+
+
+.login_wrapper {
+    margin: 0;
+    text-align: center;
+    width: 202px;
+}
+#content .login_wrapper table {
+	border:none;
+}
+#content .login_wrapper table tr {
+	background-color: transparent;
+}
+#content .login_wrapper table td {
+	padding: 0;
+	text-align: inherit;
+}
+
+.login_wrapper input[type='password'], .login_wrapper input[type='text'] {
+    background: none repeat scroll 0 0 #FeFefe;
+    border: 3px solid #BEBEBE;
+    color: #555;
+    font-size: 16px;
+    padding: 5px 10px;
+    width: 178px;
+}
+.login_wrapper input[type='password']:focus, .login_wrapper input[type='text']:focus {
+    background: none repeat scroll 0 0 #FeFefe;
+    border: 3px solid #3B80BC;
+    color: #222222;
+}
+.login_wrapper input[type='submit'] {
+    xbackground: url('images/login_submit.png') repeat scroll 0 0 transparent;
+    xborder: medium none;
+    cursor: pointer;
+    height: 35px;
+    margin: 5px 0 0 ;
+    width: 94px;
+}
+.login_wrapper input[type='submit']:hover {
+    xbackground: url('images/login_submit_hover.png') repeat scroll 0 0 transparent;
+}
+
+/* FOR FTP PAGE */
+#frameWrap {
+    height: 22em;
+    min-height: 22em;
+    overflow-y: hidden;
+    padding-bottom: 1.1em;
+    resize: vertical;
+}
+#frameWrap.IE {
+	height:40em;
+	min-height:40em;
+}
+#ftp_frame 	{
+	border: 0 solid;
+	height:100%;
+	width: 100%;
+	overflow:hidden;
+	resize:none;
+}

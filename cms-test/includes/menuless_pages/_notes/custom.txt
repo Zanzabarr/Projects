@@ -1,0 +1,5 @@
+includes/custom/
+
+Custom pages go here. These pages don't include the standard head/header/footer.
+
+This should be used for special landing pages/ home pages that don't have the same layout as the rest of the site or any other pages that don't use the standard layout. 
