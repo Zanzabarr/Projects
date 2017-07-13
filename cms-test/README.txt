@@ -4,8 +4,8 @@ Mostly uploaded to show off CMS files, which are contained in the Admin folder.
 
 Default user login for admin area to access the CMS is: 
 
-Username: Admin
-Password: Admin
+Username: admin
+Password: admin
 
 Access this area at http://www.(websitename).com/admin
 On a local server this would obviously be http://localhost/cms-test/admin
